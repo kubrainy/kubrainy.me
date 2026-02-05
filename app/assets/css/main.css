@@ -1,0 +1,14 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+@theme {
+  --font-sans: 'Poppins', sans-serif;
+}
+
+@theme {
+  --container-8xl: 90rem;
+}
+
+:root {
+  --ui-container: var(--container-5xl);
+}
