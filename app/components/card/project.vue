@@ -1,38 +1,6 @@
 <script setup lang="ts">
 const props = defineProps<{ project: Project }>()
 
-// Projelerinde favicon çekilemediği için ve icon değeri kullanmadığın için bu kısmı kaldırdım
-
-// const faviconUrl = computed<string | undefined>(() => {
-//   try {
-//     return new URL('/favicon.ico', props.project.link).toString()
-//   }
-//   catch {
-//     return undefined
-//   }
-// })
-
-// const showFavicon = ref(false)
-
-// function verifyFavicon(): void {
-//   const url = faviconUrl.value
-//   if (!url) {
-//     showFavicon.value = false
-//     return
-//   }
-
-//   const img = new Image()
-//   img.onload = () => {
-//     showFavicon.value = true
-//   }
-//   img.onerror = () => {
-//     showFavicon.value = false
-//   }
-//   img.src = url
-// }
-
-// onMounted(verifyFavicon)
-// watch(faviconUrl, verifyFavicon)
 </script>
 
 <template>
@@ -44,27 +12,10 @@ const props = defineProps<{ project: Project }>()
     :aria-label="`Open ${props.project.name}`"
   >
     <div class="flex items-start gap-3 w-full">
-      <!-- <img
-        v-if="props.project.image"
-        :src="props.project.image"
-        :alt="`${props.project.name} icon`"
-        class="w-12 h-12 rounded-md object-cover shrink-0 mt-1"
-      >
-
-      <img
-        v-else-if="showFavicon && faviconUrl"
-        :src="faviconUrl"
-        :alt="`${props.project.name} favicon`"
-        class="w-10 h-10 rounded-md object-cover shrink-0 mt-1"
-      > -->
-
-      <!-- <UIcon
-        v-else
-        :name="props.project.icon"
-        class="text-3xl shrink-0 mt-1"
-      /> -->
-
       <div class="flex-1 min-w-0">
+        <div>
+          <img :src="`${project.link}/favicon.ico`" class="h-6">
+        </div>
         <h3 class="font-medium text-lg">
           {{ props.project.name }}
         </h3>
