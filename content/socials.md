@@ -6,7 +6,7 @@ links:
       description:
 
     - name: 'GitHub'
-      link: 'https://github.com/kubracetinkaya1'
+      link: 'https://github.com/kubrainy'
       icon: 'lucide:github'
       description:
 
