@@ -14,13 +14,21 @@
   "dependencies": {
     "@nuxt/content": "^3.11.0",
     "@nuxt/ui": "^4.4.0",
-    "nuxt": "^4.3.0",
+    "nuxt": "^4.3.1",
     "tailwindcss": "^4.1.18",
     "vue": "^3.5.27",
     "vue-router": "^4.6.4"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^7.2.0",
-    "eslint": "^9.39.2"
+    "debug": "^4.4.3",
+    "eslint": "^9.39.2",
+    "parse5": "^8.0.0",
+    "rehype-raw": "^7.0.0",
+    "remark-emoji": "^5.0.2",
+    "remark-gfm": "^4.0.1",
+    "remark-rehype": "^11.1.2",
+    "unified": "^11.0.5",
+    "unist-util-visit": "^5.1.0"
   }
 }

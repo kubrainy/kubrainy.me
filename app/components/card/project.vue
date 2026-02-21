@@ -13,9 +13,6 @@ const props = defineProps<{ project: Project }>()
   >
     <div class="flex items-start gap-3 w-full">
       <div class="flex-1 min-w-0">
-        <div>
-          <img :src="`${project.link}/favicon.ico`" class="h-6">
-        </div>
         <h3 class="font-medium text-lg">
           {{ props.project.name }}
         </h3>

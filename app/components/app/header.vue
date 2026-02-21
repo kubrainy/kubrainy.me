@@ -20,14 +20,12 @@ const items = computed<NavigationMenuItem[]>(() => [
     <UColorModeImage class="h-12" :dark="signWhite" :light="signBlack" />
   </template>
 
-  <!-- Desktop -->
   <UNavigationMenu
     class="hidden md:flex"
     :items="items"
     variant="link"
   />
 
-  <!-- ⭐ MOBILE DRAWER İÇİ -->
   <template #body>
     <UNavigationMenu
       orientation="vertical"
@@ -39,7 +37,7 @@ const items = computed<NavigationMenuItem[]>(() => [
   <template #right>
     <ColorModeButton />
     <UButton
-      to="https://github.com/kubracetinkaya1"
+      to="https://github.com/kubrainy"
       target="_blank"
       icon="i-simple-icons-github"
       variant="ghost"
