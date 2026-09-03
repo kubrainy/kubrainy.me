@@ -21,6 +21,8 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^7.2.0",
+    "@iconify-json/lucide": "^1.2.128",
+    "@iconify-json/simple-icons": "^1.2.94",
     "debug": "^4.4.3",
     "eslint": "^9.39.2",
     "parse5": "^8.0.0",

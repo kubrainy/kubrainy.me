@@ -3,12 +3,61 @@
 
 @theme {
   --font-sans: 'Poppins', sans-serif;
-}
-
-@theme {
   --container-8xl: 90rem;
 }
 
 :root {
   --ui-container: var(--container-5xl);
+  --ui-bg: #ffffff; 
+  --ui-text: #1a1a1a;
+}
+
+.dark {
+  --ui-bg: #0a0a0a;
+  --ui-text: #e8e8e0;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+
+  body {
+    background-color: var(--ui-bg);
+    color: var(--ui-text);
+    font-family: var(--font-sans);
+    margin: 0;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'DM Serif Display', serif;
+    color: inherit;
+  }
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-new(root) {
+  z-index: 9999;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+}
+
+@layer utilities {
+  .accent-dim {
+    background-color: rgba(200, 245, 90, 0.07);
+  }
+  .accent-border {
+    border-color: rgba(200, 245, 90, 0.2);
+  }
+  .font-serif-display {
+    font-family: 'DM Serif Display', serif;
+  }
 }

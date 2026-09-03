@@ -9,6 +9,6 @@ const { data } = await useAsyncData(`me`, () => queryCollection('me').first())
 <template>
   <UContainer class="mt-10 md:mt-20 lg:mt-32">
     <ContentRenderer v-if="data" :value="data" class="me-wrapper w-full" />
-    <CardSocials />
+    <CardSocials :items="data?.socials ?? []" class="mt-8" />
   </UContainer>
 </template>

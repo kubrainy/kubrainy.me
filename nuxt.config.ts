@@ -10,6 +10,12 @@ export default defineNuxtConfig({
     '@nuxt/content',
   ],
   css: ['~/assets/css/main.css'],
+  icon: {
+    clientBundle: {
+      scan: true,
+      sizeLimitKb: 256,
+    },
+  },
   content: {
     experimental: { nativeSqlite: true },
   },

@@ -1,11 +1,10 @@
 import { defineCollection, defineContentConfig, z } from '@nuxt/content'
-
-const linksItem = z.object({
+const socialItem = z.object({
   name: z.string(),
-  link: z.string(),
-  icon: z.string().optional(),
-  description: z.string().optional(),
+  url: z.string(),
+  icon: z.string(),
 })
+
 const projectsItem = z.object({
   name: z.string(),
   link: z.string(),
@@ -18,15 +17,11 @@ export default defineContentConfig({
     me: defineCollection({
       type: 'page',
       source: 'me.md',
-    }),
-
-    socials: defineCollection({
-      type: 'data',
-      source: 'socials.md',
       schema: z.object({
-        links: z.array(linksItem),
+        socials: z.array(socialItem).optional(),
       }),
     }),
+
     projects: defineCollection({
       type: 'data',
       source: 'projects.md',
