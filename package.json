@@ -25,6 +25,8 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^9.5.1",
+    "@iconify-json/simple-icons": "^1.2.97",
+    "@iconify-json/tabler": "^1.2.40",
     "eslint": "^10.9.1"
   }
 }
