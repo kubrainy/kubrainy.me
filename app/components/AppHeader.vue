@@ -4,7 +4,9 @@
 <template>
   <header class="w-full mt-4 fixed">
     <UContainer class="flex justify-between">
-      <Logo class="h-6 w-auto" />
+      <ULink to="/" aria-label="Ana sayfa">
+        <Logo class="h-6 w-auto" />
+      </ULink>
       <UColorModeButton variant="link" class="prose-content" />
     </UContainer>
   </header>

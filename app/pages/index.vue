@@ -2,6 +2,7 @@
 const { data: me } = await useAsyncData('me', () => queryCollection('me').first())
 const { data: socials } = await useAsyncData('socials', () => queryCollection('socials').all())
 const { data: projects } = await useAsyncData('projects', () => queryCollection('projects').all())
+const { data: posts } = await useAsyncData('home-blog', () => queryCollection('blog').order('date', 'DESC').all())
 </script>
 
 <template>
@@ -14,12 +15,18 @@ const { data: projects } = await useAsyncData('projects', () => queryCollection(
           <USeparator class="my-6" />
 
           <section v-if="projects?.length">
-            <h2 class="font-display text-xl text-highlighted">
-              Projeler
-            </h2>
+            <ULink
+              to="/projects"
+              class="group -m-1 flex items-center justify-between p-1"
+            >
+              <h2 class="font-display text-xl text-highlighted transition-colors group-hover:text-primary">
+                Projeler
+              </h2>
+              <UIcon name="i-tabler-arrow-right" class="size-5 text-muted transition-all duration-200 ease-out group-hover:translate-x-1 group-hover:text-primary" />
+            </ULink>
 
             <ul class="mt-4 flex flex-col gap-4">
-              <li v-for="project in projects" :key="project.name">
+              <li v-for="project in projects.slice(0, 3)" :key="project.name">
                 <ULink
                   :to="project.link"
                   target="_blank"
@@ -34,6 +41,38 @@ const { data: projects } = await useAsyncData('projects', () => queryCollection(
                 </ULink>
                 <p class="mt-1 text-sm text-muted">
                   {{ project.description }}
+                </p>
+              </li>
+            </ul>
+          </section>
+
+          <USeparator class="my-6" />
+
+          <section v-if="posts?.length">
+            <ULink
+              to="/blog"
+              class="group -m-1 flex items-center justify-between p-1"
+            >
+              <h2 class="font-display text-xl text-highlighted transition-colors group-hover:text-primary">
+                Blog
+              </h2>
+              <UIcon name="i-tabler-arrow-right" class="size-5 text-muted transition-all duration-200 ease-out group-hover:translate-x-1 group-hover:text-primary" />
+            </ULink>
+
+            <ul class="mt-4 flex flex-col gap-4">
+              <li v-for="post in posts.slice(0, 3)" :key="post.path">
+                <ULink
+                  :to="post.path"
+                  class="group inline-flex items-center gap-1 text-default transition-colors hover:text-primary"
+                >
+                  {{ post.title }}
+                  <UIcon
+                    name="i-tabler-arrow-up-right"
+                    class="size-3 -translate-x-1 translate-y-0.5 text-primary opacity-0 transition duration-200 ease-out group-hover:translate-x-0 group-hover:translate-y-0 group-hover:opacity-100"
+                  />
+                </ULink>
+                <p class="mt-1 text-sm text-muted">
+                  {{ post.description }}
                 </p>
               </li>
             </ul>
