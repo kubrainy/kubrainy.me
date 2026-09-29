@@ -39,7 +39,7 @@ const photoOpen = computed({
 
           <USeparator class="my-6" />
 
-          <section v-if="projects?.length">
+          <section v-if="projects?.length" id="projeler" class="scroll-mt-16">
             <ULink
               to="/projects"
               class="group flex items-center justify-between"
@@ -78,7 +78,7 @@ const photoOpen = computed({
 
           <USeparator class="my-6" />
 
-          <section v-if="posts?.length">
+          <section v-if="posts?.length" id="blog" class="scroll-mt-16">
             <ULink
               to="/blog"
               class="group flex items-center justify-between"
@@ -115,7 +115,7 @@ const photoOpen = computed({
 
           <USeparator class="my-6" />
 
-          <section v-if="photos?.length">
+          <section v-if="photos?.length" id="fotograflar" class="scroll-mt-16">
             <ULink
               :to="socials?.find(s => s.name === 'VSCO')?.url"
               target="_blank"

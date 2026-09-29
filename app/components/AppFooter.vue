@@ -3,11 +3,11 @@ const year = new Date().getFullYear()
 
 const { data: socials } = await useAsyncData('socials', () => queryCollection('socials').all())
 
-const links = computed(() => [
-  { label: 'Projeler', to: '/projects' },
-  { label: 'Blog', to: '/blog' },
-  { label: 'Fotoğraflar', to: socials.value?.find(s => s.name === 'VSCO')?.url, external: true },
-])
+const links = [
+  { label: 'Projeler', to: '/#projeler' },
+  { label: 'Blog', to: '/#blog' },
+  { label: 'Fotoğraflar', to: '/#fotograflar' },
+]
 </script>
 
 <template>
@@ -31,9 +31,8 @@ const links = computed(() => [
             v-for="link in links"
             :key="link.label"
             :to="link.to"
-            :target="link.external ? '_blank' : undefined"
-            :rel="link.external ? 'noopener noreferrer' : undefined"
-            class="transition-colors hover:text-primary"
+            :active="false"
+            class="text-dimmed transition-colors hover:text-primary"
           >
             {{ link.label }}
           </ULink>
