@@ -12,6 +12,21 @@ const { data: posts } = await useAsyncData('home-blog', () => queryCollection('b
         <div class="prose-scale">
           <ContentRenderer v-if="me" :value="me" />
 
+          <div v-if="socials?.length" class="mt-4 flex flex-wrap items-center gap-1">
+            <UButton
+              v-for="social in socials"
+              :key="social.name"
+              :to="social.url"
+              :icon="social.icon"
+              :aria-label="social.name"
+              target="_blank"
+              rel="noopener noreferrer"
+              color="neutral"
+              variant="link"
+              size="sm"
+            />
+          </div>
+
           <USeparator class="my-6" />
 
           <section v-if="projects?.length">
@@ -83,23 +98,6 @@ const { data: posts } = await useAsyncData('home-blog', () => queryCollection('b
               </li>
             </ul>
           </section>
-
-          <USeparator class="my-6" />
-
-          <div v-if="socials?.length" class="flex flex-wrap items-center gap-1">
-            <UButton
-              v-for="social in socials"
-              :key="social.name"
-              :to="social.url"
-              :icon="social.icon"
-              :aria-label="social.name"
-              target="_blank"
-              rel="noopener noreferrer"
-              color="neutral"
-              variant="link"
-              size="sm"
-            />
-          </div>
         </div>
       </UContainer>
     </UPageBody>
