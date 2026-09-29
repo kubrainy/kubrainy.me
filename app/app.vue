@@ -12,16 +12,16 @@ useHead({
 useSeoMeta({
   ogTitle: 'Kübra Çetinkaya',
   twitterTitle: 'Kübra Çetinkaya',
-  description: 'Kübra Çetinkaya — Yazılım Mühendisliği mezunu, Vue/Nuxt ve Flutter ile web & mobil uygulamalar geliştiren yazılım geliştirici.',
-  ogDescription: 'Yazılım Mühendisliği mezunu, Vue/Nuxt ve Flutter ile web & mobil uygulamalar geliştiren yazılım geliştirici.',
-  twitterDescription: 'Yazılım Mühendisliği mezunu, Vue/Nuxt ve Flutter ile web & mobil uygulamalar geliştiren yazılım geliştirici.',
+  description: 'Web & mobil geliştirici',
+  ogDescription: 'Web & mobil geliştirici',
+  twitterDescription: 'Web & mobil geliştirici',
   ogSiteName: 'Kübra Çetinkaya',
   ogType: 'website',
   ogLocale: 'tr_TR',
   ogImage,
-  ogImageWidth: 1200,
+  ogImageWidth: 630,
   ogImageHeight: 630,
-  twitterCard: 'summary_large_image',
+  twitterCard: 'summary',
   twitterImage: ogImage,
 })
 </script>
