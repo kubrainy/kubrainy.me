@@ -9,6 +9,15 @@ if (!post.value) {
 useHead({
   title: `${post.value.title} · Kübra ÇETİNKAYA`,
 })
+
+useSeoMeta({
+  description: post.value.description,
+  ogTitle: post.value.title,
+  ogDescription: post.value.description,
+  ogType: 'article',
+  twitterTitle: post.value.title,
+  twitterDescription: post.value.description,
+})
 </script>
 
 <template>

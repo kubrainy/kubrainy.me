@@ -15,15 +15,18 @@ const { data: posts } = await useAsyncData('home-blog', () => queryCollection('b
           <USeparator class="my-6" />
 
           <section v-if="projects?.length">
-            <ULink
-              to="/projects"
-              class="group -m-1 flex items-center justify-between p-1"
-            >
-              <h2 class="font-display text-xl text-highlighted transition-colors group-hover:text-primary">
+            <div class="flex items-center justify-between">
+              <h2 class="font-display text-xl text-highlighted">
                 Projeler
               </h2>
-              <UIcon name="i-tabler-arrow-right" class="size-5 text-muted transition-all duration-200 ease-out group-hover:translate-x-1 group-hover:text-primary" />
-            </ULink>
+              <ULink
+                to="/projects"
+                class="group -m-1 flex items-center gap-1 p-1 text-sm text-muted transition-colors hover:text-primary"
+              >
+                Tümü
+                <UIcon name="i-tabler-arrow-right" class="size-4 transition-transform duration-200 ease-out group-hover:translate-x-1" />
+              </ULink>
+            </div>
 
             <ul class="mt-4 flex flex-col gap-4">
               <li v-for="project in projects.slice(0, 3)" :key="project.name">
@@ -49,15 +52,18 @@ const { data: posts } = await useAsyncData('home-blog', () => queryCollection('b
           <USeparator class="my-6" />
 
           <section v-if="posts?.length">
-            <ULink
-              to="/blog"
-              class="group -m-1 flex items-center justify-between p-1"
-            >
-              <h2 class="font-display text-xl text-highlighted transition-colors group-hover:text-primary">
+            <div class="flex items-center justify-between">
+              <h2 class="font-display text-xl text-highlighted">
                 Blog
               </h2>
-              <UIcon name="i-tabler-arrow-right" class="size-5 text-muted transition-all duration-200 ease-out group-hover:translate-x-1 group-hover:text-primary" />
-            </ULink>
+              <ULink
+                to="/blog"
+                class="group -m-1 flex items-center gap-1 p-1 text-sm text-muted transition-colors hover:text-primary"
+              >
+                Tümü
+                <UIcon name="i-tabler-arrow-right" class="size-4 transition-transform duration-200 ease-out group-hover:translate-x-1" />
+              </ULink>
+            </div>
 
             <ul class="mt-4 flex flex-col gap-4">
               <li v-for="post in posts.slice(0, 3)" :key="post.path">

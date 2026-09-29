@@ -4,6 +4,14 @@ const { data: projects } = await useAsyncData('all-projects', () => queryCollect
 useHead({
   title: 'Projeler · Kübra ÇETİNKAYA',
 })
+
+useSeoMeta({
+  description: 'Kübra Çetinkaya\'nın geliştirdiği web ve mobil projeler.',
+  ogTitle: 'Projeler · Kübra Çetinkaya',
+  ogDescription: 'Kübra Çetinkaya\'nın geliştirdiği web ve mobil projeler.',
+  twitterTitle: 'Projeler · Kübra Çetinkaya',
+  twitterDescription: 'Kübra Çetinkaya\'nın geliştirdiği web ve mobil projeler.',
+})
 </script>
 
 <template>

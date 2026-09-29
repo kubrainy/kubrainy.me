@@ -4,6 +4,14 @@ const { data: posts } = await useAsyncData('blog-posts', () => queryCollection('
 useHead({
   title: 'Blog · Kübra ÇETİNKAYA',
 })
+
+useSeoMeta({
+  description: 'Kübra Çetinkaya\'nın blog yazıları.',
+  ogTitle: 'Blog · Kübra Çetinkaya',
+  ogDescription: 'Kübra Çetinkaya\'nın blog yazıları.',
+  twitterTitle: 'Blog · Kübra Çetinkaya',
+  twitterDescription: 'Kübra Çetinkaya\'nın blog yazıları.',
+})
 </script>
 
 <template>
