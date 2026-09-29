@@ -10,8 +10,6 @@ useHead({
   title: `${post.value.title} · Kübra ÇETİNKAYA`,
 })
 
-useState('breadcrumb-title').value = post.value.title
-
 useSeoMeta({
   description: post.value.description,
   ogTitle: post.value.title,
