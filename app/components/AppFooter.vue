@@ -59,7 +59,7 @@ const links = computed(() => [
             variant="link"
             size="xs"
             class="text-dimmed"
-            :ui="{ leadingIcon: 'size-3.5' }"
+            :ui="{ leadingIcon: 'size-3' }"
           />
         </div>
       </div>
