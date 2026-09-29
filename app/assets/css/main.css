@@ -19,3 +19,10 @@
   font-family: var(--font-display);
   font-weight: 400;
 }
+html {
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}

@@ -32,5 +32,13 @@ export default defineContentConfig({
         category: z.string(),
       }),
     }),
+    photos: defineCollection({
+      type: 'data',
+      source: 'photos/*.yml',
+      schema: z.object({
+        image: z.string(),
+        alt: z.string(),
+      }),
+    }),
   },
 })

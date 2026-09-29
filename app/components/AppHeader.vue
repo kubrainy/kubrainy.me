@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <header class="w-full mt-4 fixed">
+  <header class="w-full fixed top-4">
     <UContainer class="flex justify-between">
       <ULink to="/" aria-label="Ana sayfa">
         <Logo class="h-6 w-auto" />

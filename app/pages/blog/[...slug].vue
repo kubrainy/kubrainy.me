@@ -10,6 +10,8 @@ useHead({
   title: `${post.value.title} · Kübra ÇETİNKAYA`,
 })
 
+useState('breadcrumb-title').value = post.value.title
+
 useSeoMeta({
   description: post.value.description,
   ogTitle: post.value.title,
@@ -23,14 +25,9 @@ useSeoMeta({
 <template>
   <UPage v-if="post">
     <UPageBody>
-      <UContainer class="lg:mt-36 md:mt-24 mt-24">
+      <UContainer class="mt-6">
         <div class="prose-scale">
-          <ULink to="/blog" class="inline-flex items-center gap-1 text-sm text-muted transition-colors hover:text-primary">
-            <UIcon name="i-tabler-arrow-left" class="size-3" />
-            Tüm yazılar
-          </ULink>
-
-          <h1 class="mt-6 font-display text-2xl text-highlighted">
+          <h1 class="font-display text-2xl text-highlighted">
             {{ post.title }}
           </h1>
           <p v-if="post.date" class="mt-1 text-sm text-muted">
