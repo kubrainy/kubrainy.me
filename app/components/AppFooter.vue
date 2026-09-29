@@ -1,4 +1,6 @@
 <script setup lang="ts">
+const year = new Date().getFullYear()
+
 const { data: socials } = await useAsyncData('socials', () => queryCollection('socials').all())
 
 const links = computed(() => [
@@ -42,7 +44,7 @@ const links = computed(() => [
 
       <div class="flex items-center justify-between gap-4">
         <p class="text-xs text-dimmed">
-          © 2026
+          © {{ year }}
         </p>
         <div v-if="socials?.length" class="flex items-center gap-1">
           <UButton
@@ -57,6 +59,7 @@ const links = computed(() => [
             variant="link"
             size="xs"
             class="text-dimmed"
+            :ui="{ leadingIcon: 'size-3.5' }"
           />
         </div>
       </div>
