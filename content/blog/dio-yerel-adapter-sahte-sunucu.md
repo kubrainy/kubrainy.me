@@ -4,21 +4,21 @@ description: Elinde henüz sunucu yoksa ya da uygulama internetsiz çalışacaks
 date: '2026-10-04'
 ---
 
-Flutter'da Dio ile REST isteği atmayı öğrenirken şu soru çıkabilir: **Elimde henüz bir sunucu yoksa ya da uygulama internetsiz de çalışacaksa Dio'yu nasıl kullanırım?**
+Flutter'da bir uygulama yaparken şöyle bir durumda kaldım: REST isteklerini **Dio** ile atmam gerekiyordu, ama elimde sunucu yoktu. Üstüne uygulamanın internetsiz de çalışması lazımdı. Dışarıdaki bir test API'sine de istek atmak istemiyordum.
 
-Cevap: Dio'nun `HttpClientAdapter` yapısını değiştirerek isteği ağa göndermeden cihazın içinde cevaplamak. İstemci kodun gerçek bir API'ye istek atıyormuş gibi kalıyor.
+İlk başta "Dio'yu bu durumda nasıl kullanacağım?" diye düşündüm. Sonra Dio'nun isteği kendisinin göndermediğini öğrendim. Bu işi bir **adapter** yapıyor. Adapter'ı kendim yazınca isteği ağa göndermeden uygulamanın içinde cevaplayabildim. Bu yazıda nasıl yaptığımı anlatıyorum.
 
-Ne zaman işe yarar?
+Bu yöntem şu durumlarda işime yaradı:
 
-- Backend hazır değilken ekranları geliştirirken.
-- Veri zaten cihazdaysa ve offline çalışacaksan, ama Dio'nun status kodu ve hata yönetimi yapısını korumak istiyorsan.
-- Testlerde gerçek sunucuya bağlanmadan Dio kodunu denerken.
+- Backend hazır değilken ekran geliştirirken.
+- Veri zaten telefondayken ama Dio'nun status kodu ve hata yönetimini kullanmak isterken.
+- Testlerde gerçek sunucuya bağlanmak istemezken.
 
-## Dio isteği nasıl gönderir?
+## Dio isteği aslında kim gönderiyor?
 
-Dio ağ işlemini kendisi yapmaz. İsteği hazırlar, **adapter** denen bir nesneye verir ve ondan cevap bekler. Varsayılan adapter isteği internete gönderir. Kendi adapter'ını yazarsan isteği sen karşılarsın.
+Ben Dio'nun isteği direkt kendisi gönderdiğini sanıyordum. Öyle değilmiş. Dio isteği hazırlıyor, bir adapter'a veriyor ve ondan cevap bekliyor. Varsayılan adapter isteği internete gönderiyor. Kendi adapter'ımı yazarsam isteği ben karşılıyorum.
 
-`HttpClientAdapter` arayüzünün ana metodu `fetch`:
+Adapter'ın ana metodu `fetch`:
 
 ```dart
 Future<ResponseBody> fetch(
@@ -28,7 +28,7 @@ Future<ResponseBody> fetch(
 )
 ```
 
-`options` isteğin metodunu, adresini ve gövdesini taşır. Dönüş değeri `ResponseBody`, yani cevabın metni ve durum kodu.
+`options` içinde isteğin metodu, adresi ve gövdesi var. Benim `ResponseBody` olarak cevap vermem gerekiyor, yani cevap metni ve durum kodu.
 
 ## Dio'ya adapter vermek
 
@@ -40,11 +40,11 @@ Dio createDio(HttpClientAdapter adapter) {
 }
 ```
 
-`baseUrl` uydurma bir adres olabilir, çünkü adapter isteği yakaladığı için o adrese hiçbir paket gitmez.
+`baseUrl` olarak uydurma bir adres yazdım. Adapter isteği yakaladığı için o adrese zaten hiçbir şey gitmiyor.
 
-## Sahte sunucuyu yazmak
+## Sahte sunucuyu yazdım
 
-Basit bir `/notes` kaynağı yapalım. Veriyi bellekte tutuyoruz.
+Örnek olarak basit bir `/notes` kaynağı yapıyorum. Veriyi bellekte tutuyorum.
 
 ```dart
 import 'dart:convert';
@@ -97,14 +97,14 @@ class FakeApiAdapter implements HttpClientAdapter {
 }
 ```
 
-Önemli noktalar:
+Kodda dikkat ettiğim şeyler:
 
-1. **Yönlendirme:** İstek yolunu `pathSegments` ile parçalayıp hangi kaynağa gittiğine bakıyoruz.
-2. **Cevap üretimi:** `ResponseBody.fromString` ile JSON metni ve durum kodunu dönüyoruz.
-3. **Content-Type:** Bunu `application/json` yaparsan Dio gövdeyi kendisi `Map` veya `List` yapar.
-4. **Doğrulama:** Bozuk veri gelince 400 dönmek, istemcideki hata yönetimini denemeni sağlar.
+1. **Yönlendirme:** İstek yolunu `pathSegments` ile parçalıyorum ve hangi kaynağa gittiğine bakıyorum.
+2. **Cevap:** `ResponseBody.fromString` ile JSON metnini ve durum kodunu dönüyorum.
+3. **Content-Type:** Bunu `application/json` yazınca Dio gövdeyi kendisi `Map` veya `List` yapıyor. Yazmayınca bununla uğraşmam gerekiyor.
+4. **Doğrulama:** Bozuk veri gelirse 400 dönüyorum. Böylece uygulamamdaki hata yönetimini deneyebiliyorum.
 
-PUT ve DELETE de aynı mantıkla eklenir. Gerçek bir REST API'yi taklit ediyorsan şu durum kodlarını kullanabilirsin:
+PUT ve DELETE'i de aynı şekilde ekledim. Gerçek bir REST API'ye benzesin diye şu durum kodlarını kullandım:
 
 | İstek | Durum kodu |
 | --- | --- |
@@ -117,7 +117,7 @@ PUT ve DELETE de aynı mantıkla eklenir. Gerçek bir REST API'yi taklit ediyors
 
 ## Kullanmak ve test etmek
 
-İstemci kodu sıradan Dio kullanımıdır, adapter'dan haberi yoktur:
+İstemci tarafı normal Dio kullanımı gibi. Adapter'dan haberi yok:
 
 ```dart
 final dio = createDio(FakeApiAdapter());
@@ -129,7 +129,7 @@ final list = await dio.get('/notes');
 print((list.data as List).length); // 1
 ```
 
-Bu yaklaşımın en güzel yanı testte ortaya çıkıyor. Sunucu kurmadan gerçek istek atabilirsin. Dio varsayılan olarak 400 ve üzeri kodlarda `DioException` fırlatır, hata durumunu da böyle sınarsın:
+Bence en güzel yanı test yazarken çıkıyor. Sunucu kurmadan gerçek istek atabiliyorum. Dio varsayılan olarak 400 ve üzeri kodlarda `DioException` fırlatıyor. Hata durumunu şöyle test ediyorum:
 
 ```dart
 expect(
@@ -140,15 +140,15 @@ expect(
 );
 ```
 
-## Sınırları
+## Bilmen gereken sınırlar
 
-- **Bu bir simülasyon.** Gerçek ağ gecikmesi veya kopma yok. İstersen `await Future.delayed(...)` ile gecikme ekleyebilir, bilerek 500 dönebilirsin.
-- **Sunucu mantığı sende.** Arama, sıralama, kimlik doğrulama gibi şeyleri adapter'a yazman gerekir. Karmaşıklaşırsa `http_mock_adapter` gibi hazır paketlere bakabilirsin.
-- **Veri kalıcı değil.** Örnekte bellek kullandık. Uygulama kapanınca veri gider. Kalıcı olması için adapter'ı bir veritabanına bağlaman gerekir.
+- **Bu bir simülasyon.** Gerçek ağ gecikmesi ya da bağlantı kopması yok. İstersen `await Future.delayed(...)` ile gecikme ekleyebilir, bilerek 500 dönebilirsin.
+- **Sunucu mantığını ben yazıyorum.** Arama, sıralama, kimlik doğrulama gibi şeyler gerekirse adapter'a eklemem lazım. İş büyürse `http_mock_adapter` gibi hazır paketlere bakılabilir.
+- **Örnekteki veri kalıcı değil.** Bellekte tuttuğum için uygulama kapanınca gidiyor. Kalıcı olsun istersem adapter'ı bir veritabanına bağlamam gerekiyor.
 
-## Özet
+## Özetle
 
-- Dio isteği kendisi göndermez, bir `HttpClientAdapter`'a verir.
-- Kendi adapter'ını yazarak isteği ağa göndermeden cevaplayabilirsin.
-- Doğru yol, metod ve durum koduyla cevap verirsen istemci kodun gerçek API'ye bağlıymış gibi çalışır.
-- Gerçek sunucuya geçmek için adapter'ı çıkarıp `baseUrl`'i değiştirmen yeterli.
+- Dio isteği kendisi göndermiyor, bir `HttpClientAdapter`'a veriyor.
+- Kendi adapter'ımı yazınca isteği ağa çıkarmadan cevaplayabiliyorum.
+- Doğru yol, metod ve durum koduyla cevap verince istemci kodum gerçek bir API'ye bağlıymış gibi çalışıyor.
+- Gerçek sunucuya geçmek istersem adapter'ı çıkarıp `baseUrl`'i değiştirmem yeterli.
