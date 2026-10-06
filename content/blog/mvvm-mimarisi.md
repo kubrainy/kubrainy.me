@@ -1,10 +1,10 @@
 ---
-title: "MVVM Mimarisi: katmanlar, akış ve gerekçe"
-description: Bir uygulama büyüdükçe "bu kod nereye yazılmalı?" sorusu zorlaşır. MVVM'in üç katmanını, aralarındaki veri akışını ve neden işe yaradığını anlatıyorum.
+title: "MVVM Mimarisi: Katmanlar, Akış ve Gerekçe"
+description: Bir uygulama büyüdükçe "Bu kod nereye yazılmalı?" sorusu zorlaşır. MVVM'in üç katmanını, aralarındaki veri akışını ve neden işe yaradığını anlatıyorum.
 date: '2026-10-06'
 ---
 
-Bir uygulama büyüdükçe "bu kod nereye yazılmalı?" sorusu zorlaşır. Ekran çizen kod, veri çeken kod ve iş kuralları aynı dosyada toplanınca küçük bir değişiklik bile beklenmedik yerleri bozar. MVVM (Model–View–ViewModel), bu sorumlulukları üç katmana ayırarak sorunu çözen bir mimari desendir.
+Bir uygulama büyüdükçe "Bu kod nereye yazılmalı?" sorusu zorlaşır. Ekran çizen kod, veri çeken kod ve iş kuralları aynı dosyada toplanınca küçük bir değişiklik bile beklenmedik yerleri bozar. MVVM (Model–View–ViewModel), bu sorumlulukları üç katmana ayırarak sorunu çözen bir mimari desendir.
 
 ## Üç katman
 
@@ -86,7 +86,7 @@ View, bu durumlardan hangisinde olunduğuna bakıp ne çizeceğine karar verir. 
 | Desen | Aracının adı | View ile ilişkisi |
 |---|---|---|
 | **MVC** | Controller | Controller girdiyi alır, Model'i ve View'ı yönlendirir. View ile Model arasındaki bağ genellikle sıkıdır. |
-| **MVP** | Presenter | Presenter View'a doğrudan komut verir ("şunu göster"). View ve Presenter birbirini tanır. |
+| **MVP** | Presenter | Presenter View'a doğrudan komut verir ("Şunu göster"). View ve Presenter birbirini tanır. |
 | **MVVM** | ViewModel | ViewModel View'ı tanımaz. View, ViewModel'in durumunu dinler. |
 
 MVVM'in farkı bağımlılığın tek yönlü olmasıdır: View ViewModel'i tanır, tersi geçerli değildir. Bu, ViewModel'i test etmeyi ve yeniden kullanmayı kolaylaştırır.
