@@ -4,15 +4,19 @@ const requestUrl = useRequestURL()
 const ogImage = `${requestUrl.origin}/og-image.png`
 const canonicalUrl = computed(() => `${requestUrl.origin}${route.path}`)
 
+const description = 'Kübra Çetinkaya. Vue, Nuxt ve TypeScript ile web, Flutter ile mobil uygulamalar geliştiriyor; hayatı kolaylaştıran, erişilebilir ürünler yapmayı hedefliyorum.'
+
 const { data: socials } = await useAsyncData('person-socials', () => queryCollection('socials').all())
 
 useHead({
-  title: 'Kübra ÇETİNKAYA',
+  title: 'Kübra Çetinkaya',
   htmlAttrs: {
     lang: 'tr',
   },
   link: [
     { rel: 'canonical', href: canonicalUrl },
+    { rel: 'icon', type: 'image/png', sizes: '192x192', href: '/icon-192.png' },
+    { rel: 'icon', href: '/favicon.ico', sizes: 'any' },
   ],
   script: [
     {
@@ -33,9 +37,9 @@ useSeoMeta({
   ogUrl: canonicalUrl,
   ogTitle: 'Kübra Çetinkaya',
   twitterTitle: 'Kübra Çetinkaya',
-  description: 'Web & mobil geliştirici',
-  ogDescription: 'Web & mobil geliştirici',
-  twitterDescription: 'Web & mobil geliştirici',
+  description,
+  ogDescription: description,
+  twitterDescription: description,
   ogSiteName: 'Kübra Çetinkaya',
   ogType: 'website',
   ogLocale: 'tr_TR',
