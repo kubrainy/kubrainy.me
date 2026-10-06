@@ -98,12 +98,15 @@ const photoOpen = computed({
                   :to="post.path"
                   class="group block"
                 >
-                  <span class="inline-flex items-center gap-1 text-default transition-colors group-hover:text-primary">
+                  <span class="flex items-center gap-1 text-default transition-colors group-hover:text-primary">
                     {{ post.title }}
                     <UIcon
                       name="i-tabler-arrow-up-right"
                       class="size-3 -translate-x-1 translate-y-0.5 text-primary opacity-0 transition duration-200 ease-out group-hover:translate-x-0 group-hover:translate-y-0 group-hover:opacity-100"
                     />
+                    <time v-if="post.date" class="ml-auto shrink-0 text-xs text-dimmed">
+                      {{ new Date(post.date).toLocaleDateString('tr-TR', { year: 'numeric', month: 'long', day: 'numeric' }) }}
+                    </time>
                   </span>
                   <p class="mt-1 text-sm text-muted">
                     {{ post.description }}
