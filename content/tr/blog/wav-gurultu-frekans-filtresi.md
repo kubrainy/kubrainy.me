@@ -1,6 +1,6 @@
 ---
 title: Bir WAV Dosyasındaki Gürültüyü Frekans Filtresiyle Nasıl Ayıklarsın?
-description: Alçak geçiren filtre nedir, kesim frekansı neyi değiştirir ve bir WAV kaydındaki istenmeyen sesi frekansa göre nasıl ayıklarsın? Noise Cleaner projemin arkasındaki fikri anlatıyorum.
+description: Bir ses kaydındaki gürültüyü frekans filtresiyle ayıklamanın mantığı.
 date: '2026-08-12'
 ---
 

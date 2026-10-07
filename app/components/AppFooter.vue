@@ -1,26 +1,29 @@
 <script setup lang="ts">
 const year = new Date().getFullYear()
+const { t } = useI18n()
+const localePath = useLocalePath()
 
-const { data: socials } = await useAsyncData('socials', () => queryCollection('socials').all())
+const { data: socials } = await useSocials()
 
-const links = [
-  { label: 'Projeler', to: '/#projeler' },
-  { label: 'Blog', to: '/#blog' },
-  { label: 'Fotoğraflar', to: '/#fotograflar' },
-]
+const links = computed(() => [
+  { label: t('nav.projects'), to: `${localePath('/')}#projeler` },
+  { label: t('nav.blog'), to: `${localePath('/')}#blog` },
+  { label: t('nav.experience'), to: `${localePath('/')}#deneyim` },
+  { label: t('nav.photos'), to: `${localePath('/')}#fotograflar` },
+])
 </script>
 
 <template>
-  <footer class="mt-24 pb-10">
+  <footer class="mt-16 pb-10">
     <UContainer>
       <USeparator class="mb-6" />
       <div class="flex items-start justify-between gap-4">
         <div class="flex flex-col gap-1">
-          <ULink to="/" aria-label="Ana sayfa" class="mb-1">
+          <ULink :to="localePath('/')" :aria-label="$t('nav.home')" class="mb-1">
             <Logo class="h-6 w-auto opacity-50" />
           </ULink>
           <p class="text-xs text-highlighted">
-            Kübra Çetinkaya
+            {{ $t('site.name') }}
           </p>
           <p class="text-xs text-dimmed">
             kubrainy

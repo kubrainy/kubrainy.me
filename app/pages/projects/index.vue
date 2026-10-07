@@ -1,17 +1,21 @@
 <script setup lang="ts">
-const { data: projects } = await useAsyncData('all-projects', () => queryCollection('projects').all())
+const { t } = useI18n()
+const { data: projects } = await useProjects()
 
-useHead({
-  title: 'Projeler · Kübra ÇETİNKAYA',
-})
+usePageSeo(() => ({
+  title: t('projects.title'),
+  description: t('projects.description'),
+}))
 
-useSeoMeta({
-  description: 'Kübra Çetinkaya\'nın geliştirdiği web ve mobil projeler.',
-  ogTitle: 'Projeler · Kübra Çetinkaya',
-  ogDescription: 'Kübra Çetinkaya\'nın geliştirdiği web ve mobil projeler.',
-  twitterTitle: 'Projeler · Kübra Çetinkaya',
-  twitterDescription: 'Kübra Çetinkaya\'nın geliştirdiği web ve mobil projeler.',
-})
+type Filter = 'all' | 'web' | 'mobile'
+const filter = ref<Filter>('all')
+
+const filters = computed(() => (['all', 'web', 'mobile'] as const).map(value => ({
+  value,
+  label: t(`projects.filter.${value}`),
+})))
+
+const visible = computed(() => (projects.value ?? []).filter(p => filter.value === 'all' || p.platform === filter.value))
 </script>
 
 <template>
@@ -19,33 +23,36 @@ useSeoMeta({
     <UPageBody>
       <UContainer class="mt-6">
         <div class="prose-scale">
-          <h1 class="font-display text-2xl text-highlighted">
-            Projeler
-          </h1>
+          <div class="flex flex-wrap items-end justify-between gap-4">
+            <h1 class="font-display text-2xl text-highlighted">
+              {{ $t('projects.title') }}
+            </h1>
+            <div class="flex gap-1" role="group" :aria-label="$t('projects.title')">
+              <UButton
+                v-for="item in filters"
+                :key="item.value"
+                :label="item.label"
+                :color="filter === item.value ? 'primary' : 'neutral'"
+                :variant="filter === item.value ? 'soft' : 'ghost'"
+                :aria-pressed="filter === item.value"
+                size="xs"
+                @click="filter = item.value"
+              />
+            </div>
+          </div>
 
-          <ul v-if="projects?.length" class="mt-6 flex flex-col gap-6">
-            <li v-for="project in projects" :key="project.name">
-              <ULink
-                :to="project.link"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="group block"
-              >
-                <span class="inline-flex items-center gap-1 text-lg font-medium text-default transition-colors group-hover:text-primary">
-                  {{ project.name }}
-                  <UIcon
-                    name="i-tabler-arrow-up-right"
-                    class="size-3 -translate-x-1 translate-y-0.5 text-primary opacity-0 transition duration-200 ease-out group-hover:translate-x-0 group-hover:translate-y-0 group-hover:opacity-100"
-                  />
-                </span>
-                <p class="mt-1 text-sm text-muted">
-                  {{ project.description }}
-                </p>
-              </ULink>
+          <TransitionGroup
+            v-if="visible.length"
+            tag="ul"
+            name="list"
+            class="relative mt-6 flex flex-col gap-6"
+          >
+            <li v-for="project in visible" :key="project.slug">
+              <ProjectCard :project="project" wide />
             </li>
-          </ul>
+          </TransitionGroup>
           <p v-else class="mt-6 text-sm text-muted">
-            Henüz proje yok.
+            {{ $t('projects.empty') }}
           </p>
         </div>
       </UContainer>

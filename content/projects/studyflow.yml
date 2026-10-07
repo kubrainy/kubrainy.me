@@ -1,0 +1,37 @@
+order: 2
+platform: mobile
+year: '2026'
+tags: [Flutter, Dart, MVVM, Hive, Dio, fl_chart]
+github: https://github.com/kubrainy/StudyFlow
+cover:
+  type: phone
+  images:
+    - /images/projects/studyflow/tasks.webp
+    - /images/projects/studyflow/dashboard.webp
+    - /images/projects/studyflow/statistics.webp
+gallery:
+  - src: /images/projects/studyflow/dashboard.webp
+    frame: phone
+    alt:
+      tr: Ana sayfa, günlük hedef halkası ve son çalışmalar
+      en: Home screen with the daily goal ring and recent sessions
+  - src: /images/projects/studyflow/subjects.webp
+    frame: phone
+    alt:
+      tr: Dersler ve ders başına çalışma süresi
+      en: Subjects with study time per subject
+  - src: /images/projects/studyflow/tasks.webp
+    frame: phone
+    alt:
+      tr: Öncelik ve son tarihe göre görevler
+      en: Tasks with priority and due dates
+  - src: /images/projects/studyflow/pomodoro.webp
+    frame: phone
+    alt:
+      tr: Pomodoro sayacı
+      en: Pomodoro timer
+  - src: /images/projects/studyflow/statistics.webp
+    frame: phone
+    alt:
+      tr: Haftalık grafik ve derslere göre dağılım
+      en: Weekly chart and time per subject

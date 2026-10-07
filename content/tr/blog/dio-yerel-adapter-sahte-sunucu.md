@@ -1,6 +1,6 @@
 ---
 title: 'Sunucu Olmadan Dio Kullanmak: Özel HttpClientAdapter ile Sahte API'
-description: Elinde henüz sunucu yoksa ya da uygulama internetsiz çalışacaksa Dio'yu nasıl kullanırsın? İsteği ağa göndermeden cihazın içinde yanıtlayan özel bir HttpClientAdapter yazmayı anlatıyorum.
+description: Sunucu yokken Dio isteklerini cihazın içinde yanıtlamak.
 date: '2026-10-04'
 ---
 

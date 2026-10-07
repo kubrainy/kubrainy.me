@@ -1,0 +1,12 @@
+type: research
+title:
+  tr: TÜBİTAK 2209-A Araştırma Projesi
+  en: TÜBİTAK 2209-A Research Grant
+org:
+  tr: TÜBİTAK · Kütahya Dumlupınar Üniversitesi
+  en: TÜBİTAK · Kütahya Dumlupınar University
+start: '2026'
+description:
+  tr: '“Kurumsal İletişimde Etik Olmayan Dilin Yapay Zekâ Tabanlı Modellerle Tespiti ve Analizi” projemiz TÜBİTAK 2209-A desteği aldı. Danışman: Şerif Ali Sadık, ekip arkadaşım: Sezi Güngörmüş.'
+  en: 'Our project on detecting and analysing unethical language in corporate communication with AI models received TÜBİTAK 2209-A funding. Advisor: Şerif Ali Sadık, teammate: Sezi Güngörmüş.'
+link: /projects/etik-mail

@@ -4,6 +4,9 @@ export default defineAppConfig({
       primary: 'pink',
       neutral: 'mauve',
     },
+    pageBody: {
+      base: 'mt-8 pb-8 space-y-12',
+    },
     icons: {
       arrowDown: 'i-tabler-arrow-down',
       arrowLeft: 'i-tabler-arrow-left',

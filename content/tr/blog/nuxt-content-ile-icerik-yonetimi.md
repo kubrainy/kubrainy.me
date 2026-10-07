@@ -1,6 +1,6 @@
 ---
 title: Nuxt Content ile İçerik Yönetimi
-description: Collections, schema ve sorgulama mantığıyla Nuxt Content'te içerik yönetimini bu sitede yaptığım gerçek örnekler üzerinden anlatıyorum.
+description: Bu sitenin içeriğini collections, schema ve sorgularla nasıl yönettiğim.
 date: '2026-09-29'
 ---
 

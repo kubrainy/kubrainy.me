@@ -1,52 +1,61 @@
 <script setup lang="ts">
+const { t, locale } = useI18n()
 const route = useRoute()
-const requestUrl = useRequestURL()
-const ogImage = `${requestUrl.origin}/og-image.png`
-const canonicalUrl = computed(() => `${requestUrl.origin}${route.path}`)
+const i18nHead = useLocaleHead()
+const siteUrl = 'https://kubrainy.me'
 
-const description = 'Kübra Çetinkaya. Vue, Nuxt ve TypeScript ile web, Flutter ile mobil uygulamalar geliştiriyor; hayatı kolaylaştıran, erişilebilir ürünler yapmayı hedefliyorum.'
+const { data: socials } = await useSocials()
 
-const { data: socials } = await useAsyncData('person-socials', () => queryCollection('socials').all())
-
-useHead({
-  title: 'Kübra Çetinkaya',
+// Sayfalar yalnızca kendi başlığını verir; ana sayfa sadece ismi gösterir.
+useHead(() => ({
+  titleTemplate: (title?: string) => title && title !== t('site.name') ? `${title} · ${t('site.name')}` : t('site.name'),
   htmlAttrs: {
-    lang: 'tr',
+    lang: i18nHead.value.htmlAttrs.lang,
   },
   link: [
-    { rel: 'canonical', href: canonicalUrl },
     { rel: 'icon', type: 'image/png', sizes: '192x192', href: '/icon-192.png' },
     { rel: 'icon', href: '/favicon.ico', sizes: 'any' },
+    ...(i18nHead.value.link ?? []),
   ],
+  meta: [...(i18nHead.value.meta ?? [])],
   script: [
     {
       type: 'application/ld+json',
       innerHTML: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'Person',
-        name: 'Kübra Çetinkaya',
-        url: requestUrl.origin,
-        jobTitle: 'Web & Mobil Geliştirici',
-        sameAs: (socials.value ?? []).map(social => social.url),
+        'name': t('site.name'),
+        'url': siteUrl,
+        'image': `${siteUrl}/og-image.png`,
+        'jobTitle': t('site.jobTitle'),
+        'alumniOf': {
+          '@type': 'CollegeOrUniversity',
+          'name': 'Kütahya Dumlupınar Üniversitesi',
+        },
+        'knowsAbout': ['Vue', 'Nuxt', 'TypeScript', 'Flutter', 'Python'],
+        'sameAs': (socials.value ?? []).filter(social => social.url.startsWith('http')).map(social => social.url),
       }),
     },
   ],
-})
+}))
 
+const ogImage = computed(() => `${siteUrl}/${locale.value === 'en' ? 'og-image-en.png' : 'og-image.png'}`)
+
+// Sayfalar kendi başlık, açıklama ve görselini usePageSeo ile ezer.
 useSeoMeta({
-  ogUrl: canonicalUrl,
-  ogTitle: 'Kübra Çetinkaya',
-  twitterTitle: 'Kübra Çetinkaya',
-  description,
-  ogDescription: description,
-  twitterDescription: description,
-  ogSiteName: 'Kübra Çetinkaya',
+  ogUrl: () => `${siteUrl}${route.path}`,
+  ogTitle: () => t('site.name'),
+  twitterTitle: () => t('site.name'),
+  description: () => t('site.description'),
+  ogDescription: () => t('site.description'),
+  twitterDescription: () => t('site.description'),
+  ogSiteName: () => t('site.name'),
   ogType: 'website',
-  ogLocale: 'tr_TR',
   ogImage,
-  ogImageWidth: 630,
+  ogImageWidth: 1200,
   ogImageHeight: 630,
-  twitterCard: 'summary',
+  ogImageAlt: () => t('site.name'),
+  twitterCard: 'summary_large_image',
   twitterImage: ogImage,
 })
 </script>

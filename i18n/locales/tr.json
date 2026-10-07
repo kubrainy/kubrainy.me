@@ -1,0 +1,88 @@
+{
+  "site": {
+    "name": "Kübra Çetinkaya",
+    "jobTitle": "Web & Mobil Geliştirici",
+    "description": "Kübra Çetinkaya. Vue, Nuxt ve TypeScript ile web, Flutter ile mobil uygulamalar geliştiriyor; hayatı kolaylaştıran, erişilebilir ürünler yapmayı hedefliyorum."
+  },
+  "nav": {
+    "home": "Ana sayfa",
+    "projects": "Projeler",
+    "experience": "Deneyim",
+    "blog": "Blog",
+    "photos": "Fotoğraflar"
+  },
+  "common": {
+    "all": "Tümü",
+    "switchLanguage": "Switch to English"
+  },
+  "home": {
+    "downloadCv": "CV İndir"
+  },
+  "projects": {
+    "title": "Projeler",
+    "description": "Kübra Çetinkaya'nın geliştirdiği web ve mobil projeler: vaka çalışmaları, ekran görüntüleri ve kaynak kodları.",
+    "empty": "Henüz proje yok.",
+    "filter": {
+      "all": "Tümü",
+      "web": "Web",
+      "mobile": "Mobil"
+    },
+    "platform": {
+      "web": "Web uygulaması",
+      "mobile": "Mobil uygulama"
+    },
+    "demo": "Canlı Demo",
+    "github": "GitHub",
+    "year": "Yıl",
+    "role": "Rol",
+    "type": "Tür",
+    "stack": "Teknolojiler",
+    "gallery": "Ekran görüntüleri",
+    "previous": "Önceki proje",
+    "next": "Sonraki proje",
+    "notFound": "Proje bulunamadı"
+  },
+  "experience": {
+    "title": "Deneyim",
+    "present": "Devam ediyor",
+    "showMore": "{count} deneyim daha göster",
+    "showLess": "Daha az göster",
+    "type": {
+      "work": "İş",
+      "education": "Eğitim",
+      "research": "Araştırma"
+    }
+  },
+  "github": {
+    "title": "GitHub'da son 4 ay",
+    "total": "{count} katkı",
+    "day": "{date}: {count} katkı",
+    "dayEmpty": "{date}: katkı yok",
+    "less": "Az",
+    "more": "Çok",
+    "contributions": "katkı"
+  },
+  "blog": {
+    "title": "Blog",
+    "description": "Kübra Çetinkaya'nın web, mobil ve yazılım mimarisi üzerine yazıları.",
+    "empty": "Henüz yazı yok.",
+    "notFound": "Yazı bulunamadı"
+  },
+  "photos": {
+    "title": "Fotoğraflar",
+    "description": "Kübra Çetinkaya'nın çektiği fotoğraflar.",
+    "more": "Daha fazlası VSCO'da",
+    "enlarge": "{alt} - büyüt",
+    "close": "Kapat",
+    "previous": "Önceki fotoğraf",
+    "next": "Sonraki fotoğraf"
+  },
+  "noiseDemo": {
+    "before": "Önce",
+    "after": "Sonra",
+    "listen": "Dinle",
+    "stop": "Durdur",
+    "caption": "Gürültülü bir kayda {cutoff} Hz kesim frekanslı, 4. derece alçak geçiren filtre uygulandı. Uygulamadaki filtrenin aynısı.",
+    "compare": "Önce ve sonrayı karşılaştırmak için kaydır"
+  }
+}

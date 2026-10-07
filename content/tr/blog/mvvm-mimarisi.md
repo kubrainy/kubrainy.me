@@ -1,6 +1,6 @@
 ---
 title: "MVVM Mimarisi: Katmanlar, Akış ve Gerekçe"
-description: Bir uygulama büyüdükçe "Bu kod nereye yazılmalı?" sorusu zorlaşır. MVVM'in üç katmanını, aralarındaki veri akışını ve neden işe yaradığını anlatıyorum.
+description: MVVM'in üç katmanı, aralarındaki veri akışı ve neden işe yaradığı.
 date: '2026-10-06'
 ---
 

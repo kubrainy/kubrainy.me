@@ -1,4 +1,51 @@
-name: Etik Mail
-description: E-posta iletişimini daha etik ve etkili hâle getirmeyi amaçlayan web uygulaması.
-link: https://etikmail.kubrainy.me/
-category: webProjects
+order: 1
+platform: web
+year: '2026'
+tags: [React, FastAPI, PyTorch, Hugging Face, BERTurk, Vite]
+demo: https://etikmail.kubrainy.me/
+github: https://github.com/kubrainy/etik-mail
+highlight:
+  tr: TÜBİTAK 2209-A · IDAP'26
+  en: TÜBİTAK 2209-A · IDAP'26
+cover:
+  type: browser
+  url: etikmail.kubrainy.me
+  images:
+    - /images/projects/etik-mail/inbox.webp
+links:
+  - label:
+      tr: Sunum
+      en: Slides
+    url: https://etik-mail-slidev.kubrainy.me
+    icon: i-tabler-presentation
+  - label:
+      tr: Model
+      en: Model
+    url: https://huggingface.co/kubrainy/etik-mail-toxic-model
+    icon: i-simple-icons-huggingface
+  - label:
+      tr: Veri seti
+      en: Dataset
+    url: https://huggingface.co/datasets/kubrainy/etik-mail-dataset
+    icon: i-tabler-database
+gallery:
+  - src: /images/projects/etik-mail/inbox.webp
+    frame: browser
+    alt:
+      tr: Gmail benzeri gelen kutusu
+      en: Gmail-like inbox
+  - src: /images/projects/etik-mail/compose.webp
+    frame: browser
+    alt:
+      tr: Yeni mail yazma penceresi
+      en: Compose window
+  - src: /images/projects/etik-mail/analysis-toxic.webp
+    frame: none
+    alt:
+      tr: Etik dışı bulunan mail için gönderimi durduran analiz ekranı
+      en: Analysis screen blocking an unethical email
+  - src: /images/projects/etik-mail/analysis-safe.webp
+    frame: none
+    alt:
+      tr: Güvenli bulunan mail için analiz ekranı
+      en: Analysis screen for an email judged safe

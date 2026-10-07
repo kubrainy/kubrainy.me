@@ -19,6 +19,7 @@
   font-family: var(--font-display);
   font-weight: 400;
 }
+
 html {
   scroll-behavior: smooth;
   scrollbar-width: none;
@@ -26,4 +27,63 @@ html {
 
 html::-webkit-scrollbar {
   display: none;
+}
+
+/* Sayfa geçişi */
+.page-enter-active,
+.page-leave-active {
+  transition:
+    opacity 0.18s ease,
+    transform 0.18s ease;
+}
+
+.page-enter-from,
+.page-leave-to {
+  opacity: 0;
+  transform: translateY(6px);
+}
+
+/* v-reveal: bkz. app/plugins/reveal.ts */
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal.reveal-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Projeler sayfasındaki filtre geçişi */
+.list-move,
+.list-enter-active,
+.list-leave-active {
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.list-enter-from,
+.list-leave-to {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.list-leave-active {
+  position: absolute;
+  inset-inline: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-enter-active,
+  .page-leave-active,
+  .list-move,
+  .list-enter-active,
+  .list-leave-active {
+    transition: none;
+  }
 }

@@ -1,13 +1,17 @@
 <script setup lang="ts">
+const localePath = useLocalePath()
 </script>
 
 <template>
-  <header class="w-full fixed top-4">
-    <UContainer class="flex justify-between">
-      <ULink to="/" aria-label="Ana sayfa">
+  <header class="fixed top-4 z-20 w-full">
+    <UContainer class="flex items-center justify-between">
+      <ULink :to="localePath('/')" :aria-label="$t('nav.home')">
         <Logo class="h-6 w-auto" />
       </ULink>
-      <UColorModeButton variant="link" class="prose-content" />
+      <div class="flex items-center">
+        <LanguageSwitcher />
+        <UColorModeButton variant="link" class="prose-content" />
+      </div>
     </UContainer>
   </header>
 </template>

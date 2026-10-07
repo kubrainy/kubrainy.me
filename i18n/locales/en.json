@@ -1,0 +1,88 @@
+{
+  "site": {
+    "name": "Kübra Çetinkaya",
+    "jobTitle": "Web & Mobile Developer",
+    "description": "Kübra Çetinkaya builds web apps with Vue, Nuxt and TypeScript and mobile apps with Flutter, aiming to create accessible products that make life easier."
+  },
+  "nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "experience": "Experience",
+    "blog": "Blog",
+    "photos": "Photos"
+  },
+  "common": {
+    "all": "All",
+    "switchLanguage": "Türkçe'ye geç"
+  },
+  "home": {
+    "downloadCv": "Download CV"
+  },
+  "projects": {
+    "title": "Projects",
+    "description": "Web and mobile projects by Kübra Çetinkaya: case studies, screenshots and source code.",
+    "empty": "No projects yet.",
+    "filter": {
+      "all": "All",
+      "web": "Web",
+      "mobile": "Mobile"
+    },
+    "platform": {
+      "web": "Web app",
+      "mobile": "Mobile app"
+    },
+    "demo": "Live Demo",
+    "github": "GitHub",
+    "year": "Year",
+    "role": "Role",
+    "type": "Type",
+    "stack": "Tech stack",
+    "gallery": "Screenshots",
+    "previous": "Previous project",
+    "next": "Next project",
+    "notFound": "Project not found"
+  },
+  "experience": {
+    "title": "Experience",
+    "present": "Present",
+    "showMore": "Show {count} more",
+    "showLess": "Show less",
+    "type": {
+      "work": "Work",
+      "education": "Education",
+      "research": "Research"
+    }
+  },
+  "github": {
+    "title": "Last 4 months on GitHub",
+    "total": "no contributions | {count} contribution | {count} contributions",
+    "day": "{date}: {count} contribution | {date}: {count} contributions",
+    "dayEmpty": "{date}: no contributions",
+    "less": "Less",
+    "more": "More",
+    "contributions": "contribution | contributions"
+  },
+  "blog": {
+    "title": "Blog",
+    "description": "Writing by Kübra Çetinkaya on web, mobile and software architecture.",
+    "empty": "No posts yet.",
+    "notFound": "Post not found"
+  },
+  "photos": {
+    "title": "Photos",
+    "description": "Photos taken by Kübra Çetinkaya.",
+    "more": "More on VSCO",
+    "enlarge": "{alt} - enlarge",
+    "close": "Close",
+    "previous": "Previous photo",
+    "next": "Next photo"
+  },
+  "noiseDemo": {
+    "before": "Before",
+    "after": "After",
+    "listen": "Listen",
+    "stop": "Stop",
+    "caption": "A 4th-order low-pass filter with a {cutoff} Hz cutoff applied to a noisy recording. The same filter the app uses.",
+    "compare": "Drag to compare before and after"
+  }
+}

@@ -1,4 +1,25 @@
-name: Noise Cleaner
-description: WAV dosyanıza uyguladığınız frekans filtresine göre istenmeyen gürültüyü ayıklar.
-link: https://noise-cleaner.kubrainy.me/
-category: webProjects
+order: 3
+platform: web
+year: '2025'
+tags: [Nuxt, TypeScript, Python, FastAPI, SciPy, Chart.js]
+demo: https://noise-cleaner.kubrainy.me/
+github: https://github.com/kubrainy/noise-cleaner
+cover:
+  type: waveform
+links:
+  - label:
+      tr: Blog yazısı
+      en: Blog post
+    url: /blog/wav-gurultu-frekans-filtresi
+    icon: i-tabler-article
+gallery:
+  - src: /images/projects/noise-cleaner/results.webp
+    frame: browser
+    alt:
+      tr: Filtre öncesi ve sonrası zaman ve frekans grafikleri
+      en: Time and frequency charts before and after filtering
+  - src: /images/projects/noise-cleaner/filters.webp
+    frame: browser
+    alt:
+      tr: Dosya yükleme ve filtre seçimi
+      en: File upload and filter selection

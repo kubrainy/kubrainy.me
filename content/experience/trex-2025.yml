@@ -1,0 +1,15 @@
+type: work
+title:
+  tr: Yazılım Mühendisi Stajyeri
+  en: Software Engineering Intern
+org:
+  tr: trex
+  en: trex
+location:
+  tr: Bursa
+  en: Bursa, Türkiye
+start: 2025-07
+end: 2025-09
+description:
+  tr: Vue.js ve Tailwind CSS ile web arayüzleri geliştirdim.
+  en: Built web interfaces with Vue.js and Tailwind CSS.

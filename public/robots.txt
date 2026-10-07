@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://kubrainy.me/sitemap.xml
+Sitemap: https://kubrainy.me/sitemap_index.xml

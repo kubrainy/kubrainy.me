@@ -1,4 +1,17 @@
-name: Chat-App
-description: Gerçek zamanlı sohbet uygulaması, kullanıcıların anlık mesajlaşmasını sağlar.
-link: https://chat.kubrainy.me/
-category: webProjects
+order: 4
+platform: web
+year: '2025'
+tags: [Node.js, WebSocket, JavaScript, HTML, CSS]
+demo: https://chat.kubrainy.me/
+github: https://github.com/kubrainy/chat-app-
+cover:
+  type: browser
+  url: chat.kubrainy.me
+  images:
+    - /images/projects/chat-app/chat.webp
+gallery:
+  - src: /images/projects/chat-app/chat.webp
+    frame: browser
+    alt:
+      tr: İki kullanıcının anlık mesajlaşması
+      en: Two users chatting in real time
