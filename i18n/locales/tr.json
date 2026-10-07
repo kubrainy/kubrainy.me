@@ -60,7 +60,9 @@
     "dayEmpty": "{date}: katkı yok",
     "less": "Az",
     "more": "Çok",
-    "contributions": "katkı"
+    "monthCommits": "bu ay commit",
+    "languages": "Diller",
+    "other": "Diğer"
   },
   "blog": {
     "title": "Blog",

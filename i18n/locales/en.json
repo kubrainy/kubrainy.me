@@ -60,7 +60,9 @@
     "dayEmpty": "{date}: no contributions",
     "less": "Less",
     "more": "More",
-    "contributions": "contribution | contributions"
+    "monthCommits": "commit this month | commits this month",
+    "languages": "Languages",
+    "other": "Other"
   },
   "blog": {
     "title": "Blog",
