@@ -1,7 +1,6 @@
 <script setup lang="ts">
 const { locale } = useI18n()
 const localePath = useLocalePath()
-const { day } = useDateFormat()
 const cv = useRuntimeConfig().public.cv
 
 const { data: me } = await useAsyncData(
@@ -82,21 +81,7 @@ const cvUrl = computed(() => locale.value === 'en' ? cv.en : cv.tr)
             <SectionHeading :title="$t('nav.blog')" :to="localePath('/blog')" />
             <ul class="mt-4 flex flex-col gap-4">
               <li v-for="(post, i) in posts.slice(0, 3)" :key="post.path" v-reveal="i">
-                <ULink :to="localePath(post.path)" class="group block">
-                  <span class="flex items-center gap-1 text-default transition-colors group-hover:text-primary">
-                    {{ post.title }}
-                    <UIcon
-                      name="i-tabler-arrow-up-right"
-                      class="size-3 shrink-0 -translate-x-1 translate-y-0.5 text-primary opacity-0 transition duration-200 ease-out group-hover:translate-x-0 group-hover:translate-y-0 group-hover:opacity-100"
-                    />
-                    <time class="ml-auto shrink-0 text-xs text-dimmed">
-                      {{ day(post.date) }}
-                    </time>
-                  </span>
-                  <p class="mt-1 text-sm text-muted">
-                    {{ post.description }}
-                  </p>
-                </ULink>
+                <BlogPostItem :post="post" compact />
               </li>
             </ul>
           </section>

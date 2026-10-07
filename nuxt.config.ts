@@ -20,6 +20,9 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ['@nuxt/ui', '@nuxt/content', '@nuxtjs/i18n', '@vercel/analytics/nuxt', '@nuxtjs/sitemap', '@nuxt/image'],
   css: ['~/assets/css/main.css'],
+  // Bileşenler bölümlere göre klasörlerde durur (layout/, projects/, blog/...).
+  // Klasör adı bileşen adına eklenmez: <ProjectCard> her yerde aynı adla kullanılır.
+  components: [{ path: '~/components', pathPrefix: false }],
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },
   },
