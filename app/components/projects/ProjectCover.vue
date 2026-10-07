@@ -20,7 +20,7 @@ const images = computed(() => props.project.cover?.images ?? [])
         <NuxtImg
           :src="images[0]"
           :alt="project.title"
-          :sizes="large ? '100vw sm:600px' : '100vw sm:320px'"
+          :sizes="large ? 'xs:100vw sm:600px' : 'xs:100vw sm:320px'"
           loading="lazy"
           class="block w-full"
         />
@@ -40,7 +40,7 @@ const images = computed(() => props.project.cover?.images ?? [])
         <NuxtImg
           :src="image"
           :alt="project.title"
-          :sizes="large ? '50vw sm:200px' : '30vw sm:120px'"
+          :sizes="large ? 'xs:50vw sm:200px' : 'xs:30vw sm:120px'"
           loading="lazy"
           class="block aspect-[390/844] w-full object-cover object-top"
         />

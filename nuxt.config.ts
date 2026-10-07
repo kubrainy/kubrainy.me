@@ -56,5 +56,9 @@ export default defineNuxtConfig({
   },
   image: {
     format: ['webp'],
+    // Resimlerdeki sizes="xs:..." için en küçük kırılım; @nuxt/image 2'de
+    // varsayılan olarak yok. Öneksiz değer 1 piksellik ekrana göre hesaplanıp
+    // geçersiz "0w" adayları üretiyor.
+    screens: { xs: 320 },
   },
 })

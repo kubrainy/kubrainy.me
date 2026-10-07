@@ -26,7 +26,7 @@ const active = ref<number | null>(null)
         <NuxtImg
           :src="photo.image"
           :alt="photo.alt"
-          :sizes="compact ? '25vw sm:160px' : '50vw sm:240px'"
+          :sizes="compact ? 'xs:25vw sm:160px' : 'xs:50vw sm:240px'"
           loading="lazy"
           class="size-full object-cover brightness-90 transition duration-500 ease-out group-hover:scale-[1.03] group-hover:brightness-100"
         />

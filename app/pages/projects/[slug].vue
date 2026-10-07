@@ -136,12 +136,12 @@ const active = ref<number | null>(null)
                   @click="active = i"
                 >
                   <PhoneFrame v-if="item.frame === 'phone'" class="transition-transform duration-300 group-hover:-translate-y-1">
-                    <NuxtImg :src="item.src" :alt="l(item.alt)" sizes="45vw sm:180px" loading="lazy" class="block aspect-[390/844] w-full object-cover object-top" />
+                    <NuxtImg :src="item.src" :alt="l(item.alt)" sizes="xs:45vw sm:180px" loading="lazy" class="block aspect-[390/844] w-full object-cover object-top" />
                   </PhoneFrame>
                   <BrowserFrame v-else-if="item.frame === 'browser'" :url="project.cover?.url ?? project.demo?.replace(/^https?:\/\/|\/$/g, '')" class="transition-transform duration-300 group-hover:-translate-y-1">
-                    <NuxtImg :src="item.src" :alt="l(item.alt)" sizes="100vw sm:300px" loading="lazy" class="block w-full" />
+                    <NuxtImg :src="item.src" :alt="l(item.alt)" sizes="xs:100vw sm:300px" loading="lazy" class="block w-full" />
                   </BrowserFrame>
-                  <NuxtImg v-else :src="item.src" :alt="l(item.alt)" sizes="100vw sm:300px" loading="lazy" class="block w-full rounded-lg shadow-xl ring-1 ring-default transition-transform duration-300 group-hover:-translate-y-1" />
+                  <NuxtImg v-else :src="item.src" :alt="l(item.alt)" sizes="xs:100vw sm:300px" loading="lazy" class="block w-full rounded-lg shadow-xl ring-1 ring-default transition-transform duration-300 group-hover:-translate-y-1" />
                   <span class="mt-2 block text-xs text-dimmed">{{ l(item.alt) }}</span>
                 </button>
               </li>

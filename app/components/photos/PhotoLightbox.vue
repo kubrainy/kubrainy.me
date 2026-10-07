@@ -64,7 +64,7 @@ useSwipe(stage, {
             :key="current.image"
             :src="current.image"
             :alt="current.alt"
-            sizes="100vw lg:1400px"
+            sizes="xs:100vw lg:1400px"
             class="max-h-full max-w-full select-none rounded-sm object-contain shadow-2xl"
             draggable="false"
           />
