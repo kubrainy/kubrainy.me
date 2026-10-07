@@ -2,3 +2,10 @@ image: /images/photos/galata-kulesi.webp
 alt:
   tr: Gece ışıklandırılmış Galata Kulesi
   en: Galata Tower lit up at night
+exif:
+  camera: iPhone 16
+  focalLength: 52
+  aperture: 1.6
+  shutter: 1/33
+  iso: 250
+palette: ['#010102', '#463929', '#1f170e', '#876f4e']

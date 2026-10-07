@@ -13,6 +13,6 @@ export async function usePhotos() {
   const l = useLocalized()
   const { data } = await useAsyncData('photos', () => queryCollection('photos').all())
   return {
-    photos: computed(() => (data.value ?? []).map(photo => ({ image: photo.image, alt: l(photo.alt) }))),
+    photos: computed(() => (data.value ?? []).map(photo => ({ image: photo.image, alt: l(photo.alt), exif: photo.exif, palette: photo.palette }))),
   }
 }

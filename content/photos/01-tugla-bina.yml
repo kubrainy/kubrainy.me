@@ -2,3 +2,4 @@ image: /images/photos/tugla-bina.webp
 alt:
   tr: Kırmızı tuğla bir binanın üzerinde uçan kuş
   en: A bird flying over a red brick building
+palette: ['#d2e0e5', '#4a2c1f', '#663f30', '#bdcdd5', '#2d1a10']

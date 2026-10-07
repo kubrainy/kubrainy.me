@@ -2,3 +2,4 @@ image: /images/photos/tahta-yol.webp
 alt:
   tr: Kanyona inen ahşap merdivenli yol
   en: A wooden stairway leading down into a canyon
+palette: ['#6c6048', '#b7c1cc', '#3b351b', '#987f5a', '#9fafc0']

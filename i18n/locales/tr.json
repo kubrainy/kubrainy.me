@@ -77,7 +77,17 @@
     "enlarge": "{alt} - büyüt",
     "close": "Kapat",
     "previous": "Önceki fotoğraf",
-    "next": "Sonraki fotoğraf"
+    "next": "Sonraki fotoğraf",
+    "seconds": "sn",
+    "shot": "Çekim bilgisi",
+    "exif": {
+      "camera": "Kamera",
+      "focalLength": "Odak",
+      "aperture": "Diyafram",
+      "shutter": "Enstantane",
+      "iso": "ISO"
+    },
+    "palette": "Renk paleti"
   },
   "noiseDemo": {
     "before": "Önce",

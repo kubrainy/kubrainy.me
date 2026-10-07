@@ -109,6 +109,15 @@ export default defineContentConfig({
       schema: z.object({
         image: z.string(),
         alt: localized,
+        // pnpm photo komutu doldurur; VSCO'dan gelen fotoğraflarda EXIF olmaz.
+        exif: z.object({
+          camera: z.string().optional(),
+          focalLength: z.number().optional(),
+          aperture: z.number().optional(),
+          shutter: z.string().optional(),
+          iso: z.number().optional(),
+        }).optional(),
+        palette: z.array(z.string()).optional(),
       }),
     }),
   },
