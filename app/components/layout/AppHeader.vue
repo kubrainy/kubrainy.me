@@ -60,8 +60,7 @@ watch(() => route.fullPath, () => nextTick(update))
             :key="link.id"
             :to="link.to"
             :active="link.id === active"
-            active-class="text-highlighted"
-            class="text-sm font-medium transition-colors hover:text-highlighted"
+            class="text-sm font-medium transition-colors"
           >
             {{ link.label }}
           </ULink>
@@ -84,17 +83,16 @@ watch(() => route.fullPath, () => nextTick(update))
           <template #content>
             <nav class="flex flex-col gap-0.5" :aria-label="$t('nav.menu')">
               <ULink
-                v-for="(link, i) in links"
+                v-for="link in links"
                 :key="link.id"
                 :to="link.to"
                 :active="link.id === active"
                 active-class="bg-primary/10 text-primary"
                 inactive-class="text-default"
-                class="flex items-center justify-between rounded-sm px-3 py-2 text-sm hover:bg-primary/10"
+                class="rounded-sm px-3 py-2 text-sm hover:bg-primary/10"
                 @click="menuOpen = false"
               >
                 {{ link.label }}
-                <span class="font-mono text-[11px] text-dimmed">{{ String(i + 1).padStart(2, '0') }}</span>
               </ULink>
             </nav>
             <div v-if="socials?.length" class="mt-1.5 flex items-center justify-between border-t border-default px-1 pt-1.5">
