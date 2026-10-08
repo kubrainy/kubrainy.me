@@ -66,7 +66,7 @@ const cvUrl = computed(() => locale.value === 'en' ? cv.en : cv.tr)
 
           <USeparator class="my-8" />
 
-          <section v-if="projects?.length" id="projeler" class="scroll-mt-16">
+          <section v-if="projects?.length" id="projeler" class="scroll-mt-20">
             <SectionHeading :title="$t('nav.projects')" :to="localePath('/projects')" />
             <ul class="mt-4 grid gap-4 sm:grid-cols-2">
               <li v-for="(project, i) in projects" :key="project.slug" v-reveal="i % 2">
@@ -77,7 +77,7 @@ const cvUrl = computed(() => locale.value === 'en' ? cv.en : cv.tr)
 
           <USeparator class="my-8" />
 
-          <section v-if="posts?.length" id="blog" class="scroll-mt-16">
+          <section v-if="posts?.length" id="blog" class="scroll-mt-20">
             <SectionHeading :title="$t('nav.blog')" :to="localePath('/blog')" />
             <ul class="mt-4 flex flex-col gap-4">
               <li v-for="(post, i) in posts.slice(0, 3)" :key="post.path" v-reveal="i">
@@ -88,14 +88,14 @@ const cvUrl = computed(() => locale.value === 'en' ? cv.en : cv.tr)
 
           <USeparator class="my-8" />
 
-          <section v-if="experience?.length" id="deneyim" class="scroll-mt-16">
+          <section v-if="experience?.length" id="deneyim" class="scroll-mt-20">
             <SectionHeading :title="$t('nav.experience')" to="https://www.linkedin.com/in/kubrainy" external link-label="LinkedIn" />
             <ExperienceTimeline :items="experience ?? []" class="mt-5" />
           </section>
 
           <USeparator class="my-8" />
 
-          <section v-if="photos.length" id="fotograflar" class="scroll-mt-16">
+          <section v-if="photos.length" id="fotograflar" class="scroll-mt-20">
             <SectionHeading :title="$t('nav.photos')" :to="localePath('/photos')" />
             <PhotoGrid :photos="photos.slice(0, 4)" compact class="mt-4" />
             <div class="mt-3 flex justify-end">
