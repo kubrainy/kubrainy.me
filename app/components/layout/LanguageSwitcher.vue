@@ -4,9 +4,6 @@ const switchLocalePath = useSwitchLocalePath()
 
 const target = computed(() => locale.value === 'en' ? 'tr' : 'en')
 
-// ULink yolları kendiliğinden aktif dile çevirir. Hedef dilin yolu burada
-// hazır olduğu için düğmede bu çeviri kapatılır (`:locale="false"`);
-// yoksa İngilizce sayfada Türkçe ana sayfanın yolu "/" yine "/en" olur.
 const to = computed(() => switchLocalePath(target.value))
 </script>
 

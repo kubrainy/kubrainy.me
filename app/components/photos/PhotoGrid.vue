@@ -37,6 +37,6 @@ const active = ref<number | null>(null)
       </button>
     </div>
 
-    <PhotoLightbox v-model="active" :photos="photos" info />
+    <PhotoLightbox v-model="active" :photos="photos" vsco />
   </div>
 </template>

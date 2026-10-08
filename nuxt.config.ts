@@ -14,11 +14,13 @@ function projectsWithOgImage() {
   return existsSync(dir) ? readdirSync(dir).filter(slug => publicFile(`images/projects/${slug}/og.png`)) : []
 }
 
+const projectOgImages = projectsWithOgImage()
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
-  modules: ['@nuxt/ui', '@nuxt/content', '@nuxtjs/i18n', '@vercel/analytics/nuxt', '@nuxtjs/sitemap', '@nuxt/image'],
+  modules: ['@nuxt/ui', '@nuxt/content', '@nuxtjs/i18n', '@vercel/analytics/nuxt', '@nuxtjs/sitemap', '@nuxt/image', '@nuxt/fonts', 'nuxt-og-image'],
   css: ['~/assets/css/main.css'],
   // Bileşenler bölümlere göre klasörlerde durur (layout/, projects/, blog/...).
   // Klasör adı bileşen adına eklenmez: <ProjectCard> her yerde aynı adla kullanılır.
@@ -38,11 +40,18 @@ export default defineNuxtConfig({
         tr: publicFile('cv.pdf'),
         en: publicFile('cv-en.pdf') || publicFile('cv.pdf'),
       },
-      projectOgImages: projectsWithOgImage(),
+      projectOgImages,
     },
   },
   routeRules: {
     '/api/github-activity': { swr: 60 * 60 * 6 },
+    ...Object.fromEntries(projectOgImages.flatMap(slug => [`/projects/${slug}`, `/en/projects/${slug}`]).map(path => [path, { ogImage: false }])),
+  },
+  fonts: {
+    families: [
+      { name: 'Inter', weights: [400, 500, 600, 700], subsets: ['latin', 'latin-ext'], global: true },
+      { name: 'DM Serif Display', weights: [400], subsets: ['latin', 'latin-ext'], global: true },
+    ],
   },
   i18n: {
     baseUrl: 'https://kubrainy.me',

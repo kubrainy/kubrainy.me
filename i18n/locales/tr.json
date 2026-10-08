@@ -77,17 +77,7 @@
     "enlarge": "{alt} - büyüt",
     "close": "Kapat",
     "previous": "Önceki fotoğraf",
-    "next": "Sonraki fotoğraf",
-    "seconds": "sn",
-    "shot": "Çekim bilgisi",
-    "exif": {
-      "camera": "Kamera",
-      "focalLength": "Odak",
-      "aperture": "Diyafram",
-      "shutter": "Enstantane",
-      "iso": "ISO"
-    },
-    "palette": "Renk paleti"
+    "next": "Sonraki fotoğraf"
   },
   "noiseDemo": {
     "before": "Önce",
@@ -96,5 +86,11 @@
     "stop": "Durdur",
     "caption": "Gürültülü bir kayda {cutoff} Hz kesim frekanslı, 4. derece alçak geçiren filtre uygulandı. Uygulamadaki filtrenin aynısı.",
     "compare": "Önce ve sonrayı karşılaştırmak için kaydır"
+  },
+  "console": {
+    "hello": "Merhaba, kodu inceliyorsun 👋",
+    "builtWith": "Bu site Nuxt + Nuxt Content ile yapıldı.",
+    "source": "Kaynak kodu: {url}",
+    "contact": "Birlikte çalışalım: {email}"
   }
 }

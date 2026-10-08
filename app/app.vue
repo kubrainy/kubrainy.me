@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { t, locale } = useI18n()
+const { t } = useI18n()
 const route = useRoute()
 const i18nHead = useLocaleHead()
 const siteUrl = 'https://kubrainy.me'
@@ -39,8 +39,6 @@ useHead(() => ({
   ],
 }))
 
-const ogImage = computed(() => `${siteUrl}/${locale.value === 'en' ? 'og-image-en.png' : 'og-image.png'}`)
-
 // Sayfalar kendi başlık, açıklama ve görselini usePageSeo ile ezer.
 useSeoMeta({
   ogUrl: () => `${siteUrl}${route.path}`,
@@ -51,12 +49,22 @@ useSeoMeta({
   twitterDescription: () => t('site.description'),
   ogSiteName: () => t('site.name'),
   ogType: 'website',
-  ogImage,
-  ogImageWidth: 1200,
-  ogImageHeight: 630,
-  ogImageAlt: () => t('site.name'),
   twitterCard: 'summary_large_image',
-  twitterImage: ogImage,
+})
+
+defineOgImage('Signature.takumi', { role: t('site.jobTitle') }, [
+  { key: 'og', alt: t('site.name') },
+  { key: 'whatsapp', width: 800, height: 800, alt: t('site.name') },
+])
+
+onMounted(() => {
+  const email = socials.value?.find(social => social.url.startsWith('mailto:'))?.url.slice('mailto:'.length)
+  printConsoleGreeting([
+    t('console.hello'),
+    t('console.builtWith'),
+    t('console.source', { url: 'github.com/kubrainy' }),
+    ...(email ? [t('console.contact', { email })] : []),
+  ])
 })
 </script>
 

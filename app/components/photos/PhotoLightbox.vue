@@ -4,28 +4,18 @@ import { onKeyStroke, useSwipe } from '@vueuse/core'
 export interface LightboxPhoto {
   image: string
   alt: string
-  exif?: {
-    camera?: string
-    focalLength?: number
-    aperture?: number
-    shutter?: string
-    iso?: number
-  }
-  palette?: string[]
 }
 
 const props = defineProps<{
   photos: LightboxPhoto[]
-  /** Fotoğrafın yanında çekim bilgisi, renk paleti ve VSCO bağlantısı gösterilir. */
-  info?: boolean
+  vsco?: boolean
 }>()
 
 /** Açık fotoğrafın sırası; null ise kapalı. */
 const index = defineModel<number | null>({ default: null })
 
-const { t } = useI18n()
 const { data: socials } = useSocials()
-const vsco = computed(() => socials.value?.find(social => social.name === 'VSCO')?.url)
+const vscoUrl = computed(() => socials.value?.find(social => social.name === 'VSCO')?.url)
 
 const open = computed({
   get: () => index.value !== null,
@@ -37,20 +27,6 @@ const open = computed({
 
 const current = computed(() => index.value === null ? undefined : props.photos[index.value])
 const counter = computed(() => index.value === null ? '' : `${index.value + 1} / ${props.photos.length}`)
-
-// Çekim bilgisi satırları; VSCO'dan gelen fotoğraflarda EXIF olmadığı için boş kalır.
-const rows = computed(() => {
-  const exif = current.value?.exif
-  if (!exif)
-    return []
-  return [
-    { label: t('photos.exif.camera'), value: exif.camera },
-    { label: t('photos.exif.focalLength'), value: exif.focalLength && `${exif.focalLength} mm` },
-    { label: t('photos.exif.aperture'), value: exif.aperture && `ƒ/${exif.aperture}` },
-    { label: t('photos.exif.shutter'), value: exif.shutter && `${exif.shutter} ${t('photos.seconds')}` },
-    { label: t('photos.exif.iso'), value: exif.iso },
-  ].filter(row => row.value)
-})
 
 function go(step: number) {
   if (index.value === null || props.photos.length < 2)
@@ -120,63 +96,30 @@ useSwipe(stage, {
         </template>
 
         <Transition name="lightbox" mode="out-in">
-          <figure
-            v-if="current && info"
+          <div
+            v-if="current && vsco"
             :key="current.image"
-            class="my-auto flex w-full max-w-md flex-col overflow-hidden rounded-xl bg-neutral-900/80 shadow-2xl ring-1 ring-white/10 md:w-auto md:max-w-none md:flex-row"
+            class="my-auto flex flex-col items-center gap-4"
           >
             <NuxtImg
               :src="current.image"
               :alt="current.alt"
-              sizes="xs:100vw lg:1000px"
-              class="max-h-[55dvh] w-full select-none bg-black object-contain md:max-h-[calc(100dvh-8rem)] md:w-auto md:max-w-[calc(100vw-30rem)]"
+              sizes="xs:100vw md:768px"
+              class="max-h-[75dvh] w-auto max-w-full select-none rounded-lg object-contain shadow-2xl md:max-w-3xl"
               draggable="false"
             />
-            <figcaption class="flex flex-col gap-6 p-5 md:w-72 md:shrink-0 md:border-l md:border-white/10 md:p-7">
-              <div v-if="rows.length">
-                <p class="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-primary-300">
-                  {{ $t('photos.shot') }}
-                </p>
-                <dl class="mt-4 grid grid-cols-[auto_1fr] gap-x-6 gap-y-2.5 font-mono text-[13px]">
-                  <template v-for="row in rows" :key="row.label">
-                    <dt class="text-white/45">
-                      {{ row.label }}
-                    </dt>
-                    <dd class="text-white">
-                      {{ row.value }}
-                    </dd>
-                  </template>
-                </dl>
-              </div>
-
-              <div v-if="current.palette?.length">
-                <p v-if="!rows.length" class="mb-4 font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-primary-300">
-                  {{ $t('photos.palette') }}
-                </p>
-                <div class="flex gap-1.5" :aria-label="$t('photos.palette')" role="img">
-                  <span
-                    v-for="color in current.palette"
-                    :key="color"
-                    :title="color"
-                    class="h-9 flex-1 rounded-md ring-1 ring-inset ring-white/10"
-                    :style="{ backgroundColor: color }"
-                  />
-                </div>
-              </div>
-
-              <ULink
-                v-if="vsco"
-                :to="vsco"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="group inline-flex items-center gap-1.5 text-xs text-white/50 transition-colors hover:text-white md:mt-auto"
-              >
-                <UIcon name="i-tabler-aperture" class="size-3.5" />
-                {{ $t('photos.more') }}
-                <UIcon name="i-tabler-arrow-up-right" class="size-3 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-              </ULink>
-            </figcaption>
-          </figure>
+            <ULink
+              v-if="vscoUrl"
+              :to="vscoUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group inline-flex items-center gap-1.5 text-xs text-white/60 transition-colors hover:text-white"
+            >
+              <UIcon name="i-tabler-aperture" class="size-3.5" />
+              {{ $t('photos.more') }}
+              <UIcon name="i-tabler-arrow-up-right" class="size-3 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </ULink>
+          </div>
 
           <NuxtImg
             v-else-if="current"
