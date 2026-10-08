@@ -45,17 +45,15 @@ useSeoMeta({
   ogTitle: () => t('site.name'),
   twitterTitle: () => t('site.name'),
   description: () => t('site.description'),
-  ogDescription: () => t('site.description'),
-  twitterDescription: () => t('site.description'),
+  ogDescription: () => t('site.jobTitle'),
+  twitterDescription: () => t('site.jobTitle'),
   ogSiteName: () => t('site.name'),
   ogType: 'website',
+  ogImage: `${siteUrl}/og-square.png`,
+  ogImageAlt: () => t('site.name'),
   twitterCard: 'summary_large_image',
+  twitterImage: `${siteUrl}/og-square.png`,
 })
-
-defineOgImage('Signature.takumi', { role: t('site.jobTitle') }, [
-  { key: 'og', alt: t('site.name') },
-  { key: 'whatsapp', width: 800, height: 800, alt: t('site.name') },
-])
 
 onMounted(() => {
   const email = socials.value?.find(social => social.url.startsWith('mailto:'))?.url.slice('mailto:'.length)

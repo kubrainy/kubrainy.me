@@ -53,17 +53,6 @@
       "research": "Research"
     }
   },
-  "github": {
-    "title": "Last 4 months on GitHub",
-    "total": "no contributions | {count} contribution | {count} contributions",
-    "day": "{date}: {count} contribution | {date}: {count} contributions",
-    "dayEmpty": "{date}: no contributions",
-    "less": "Less",
-    "more": "More",
-    "monthCommits": "commit this month | commits this month",
-    "languages": "Languages",
-    "other": "Other"
-  },
   "blog": {
     "title": "Blog",
     "description": "Writing by Kübra Çetinkaya on web, mobile and software architecture.",

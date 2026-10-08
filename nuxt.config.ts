@@ -32,9 +32,6 @@ export default defineNuxtConfig({
     url: 'https://kubrainy.me',
   },
   runtimeConfig: {
-    // İsteğe bağlı GitHub token'ı (NUXT_GITHUB_TOKEN). Olmadan da çalışır; olursa
-    // GitHub API'nin saatlik istek sınırına takılma ihtimali kalmaz.
-    githubToken: '',
     public: {
       cv: {
         tr: publicFile('cv.pdf'),
@@ -44,8 +41,10 @@ export default defineNuxtConfig({
     },
   },
   routeRules: {
-    '/api/github-activity': { swr: 60 * 60 * 6 },
     ...Object.fromEntries(projectOgImages.flatMap(slug => [`/projects/${slug}`, `/en/projects/${slug}`]).map(path => [path, { ogImage: false }])),
+  },
+  ogImage: {
+    enabled: false,
   },
   fonts: {
     families: [

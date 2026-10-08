@@ -91,7 +91,6 @@ const cvUrl = computed(() => locale.value === 'en' ? cv.en : cv.tr)
           <section v-if="experience?.length" id="deneyim" class="scroll-mt-16">
             <SectionHeading :title="$t('nav.experience')" to="https://www.linkedin.com/in/kubrainy" external link-label="LinkedIn" />
             <ExperienceTimeline :items="experience ?? []" class="mt-5" />
-            <GithubActivity v-reveal class="mt-10" />
           </section>
 
           <USeparator class="my-8" />

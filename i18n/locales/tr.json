@@ -53,17 +53,6 @@
       "research": "Araştırma"
     }
   },
-  "github": {
-    "title": "GitHub'da son 4 ay",
-    "total": "{count} katkı",
-    "day": "{date}: {count} katkı",
-    "dayEmpty": "{date}: katkı yok",
-    "less": "Az",
-    "more": "Çok",
-    "monthCommits": "bu ay commit",
-    "languages": "Diller",
-    "other": "Diğer"
-  },
   "blog": {
     "title": "Blog",
     "description": "Kübra Çetinkaya'nın web, mobil ve yazılım mimarisi üzerine yazıları.",
