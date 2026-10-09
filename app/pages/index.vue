@@ -14,6 +14,13 @@ const { data: posts } = await useBlogPosts()
 const { photos } = await usePhotos()
 
 const cvUrl = computed(() => locale.value === 'en' ? cv.en : cv.tr)
+
+const featured = computed(() => {
+  const list = projects.value ?? []
+  const picked = list.filter(p => p.featured)
+  return (picked.length ? picked : list).slice(0, 3)
+})
+const others = computed(() => (projects.value ?? []).filter(p => !featured.value.includes(p)))
 </script>
 
 <template>
@@ -69,8 +76,11 @@ const cvUrl = computed(() => locale.value === 'en' ? cv.en : cv.tr)
           <section v-if="projects?.length" id="projeler" class="scroll-mt-20">
             <SectionHeading :title="$t('nav.projects')" :to="localePath('/projects')" />
             <ul class="mt-4 grid gap-4 sm:grid-cols-2">
-              <li v-for="(project, i) in projects" :key="project.slug" v-reveal="i % 2">
+              <li v-for="(project, i) in featured" :key="project.slug" v-reveal="i % 2">
                 <ProjectCard :project="project" />
+              </li>
+              <li v-if="others.length" v-reveal="1">
+                <AllProjectsCard :projects="others" :total="projects.length" />
               </li>
             </ul>
           </section>

@@ -57,6 +57,7 @@ export default defineContentConfig({
       source: 'projects/*.yml',
       schema: z.object({
         order: z.number(),
+        featured: z.boolean().optional(),
         platform: z.enum(['web', 'mobile']),
         year: z.string(),
         tags: z.array(z.string()),

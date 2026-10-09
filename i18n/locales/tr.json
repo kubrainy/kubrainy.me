@@ -41,7 +41,10 @@
     "gallery": "Ekran görüntüleri",
     "previous": "Önceki proje",
     "next": "Sonraki proje",
-    "notFound": "Proje bulunamadı"
+    "notFound": "Proje bulunamadı",
+    "allTitle": "Tüm projeler",
+    "allCta": "{count} projenin hepsini gör",
+    "andMore": "ve {count} proje daha"
   },
   "experience": {
     "title": "Deneyim",

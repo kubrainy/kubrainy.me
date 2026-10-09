@@ -41,7 +41,10 @@
     "gallery": "Screenshots",
     "previous": "Previous project",
     "next": "Next project",
-    "notFound": "Project not found"
+    "notFound": "Project not found",
+    "allTitle": "All projects",
+    "allCta": "See all {count} projects",
+    "andMore": "and {count} more"
   },
   "experience": {
     "title": "Experience",
