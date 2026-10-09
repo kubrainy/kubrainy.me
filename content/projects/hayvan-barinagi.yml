@@ -1,0 +1,27 @@
+order: 5
+platform: web
+year: '2025'
+tags: [Node.js, Express, MongoDB, Mongoose, JavaScript, Web Components]
+demo: https://hayvan-barinak.kubrainy.me/
+github: https://github.com/kubrainy/hayvan-barinagi-yonetim-sistemi
+cover:
+  type: browser
+  url: hayvan-barinak.kubrainy.me
+  images:
+    - /images/projects/hayvan-barinagi/hayvanlar.webp
+gallery:
+  - src: /images/projects/hayvan-barinagi/hayvanlar.webp
+    frame: browser
+    alt:
+      tr: Kullanıcının barınaktaki hayvanları gördüğü ve sahiplen butonuyla talep gönderdiği sayfa
+      en: The page where a user browses the shelter's animals and sends an adoption request
+  - src: /images/projects/hayvan-barinagi/yonetim.webp
+    frame: browser
+    alt:
+      tr: İstatistik kutuları, hayvan listesi ve sahiplenme istekleriyle yönetici paneli
+      en: Admin panel with statistics, the animal list and adoption requests
+  - src: /images/projects/hayvan-barinagi/anasayfa.webp
+    frame: browser
+    alt:
+      tr: Pet 4 Life ana sayfası
+      en: The Pet 4 Life home page

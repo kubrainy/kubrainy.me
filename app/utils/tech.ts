@@ -4,6 +4,7 @@ const icons: Record<string, string> = {
   'CSS': 'i-simple-icons-css',
   'Dart': 'i-simple-icons-dart',
   'Dio': 'i-simple-icons-dart',
+  'Express': 'i-simple-icons-express',
   'FastAPI': 'i-simple-icons-fastapi',
   'fl_chart': 'i-tabler-chart-line',
   'Flutter': 'i-simple-icons-flutter',
@@ -11,6 +12,8 @@ const icons: Record<string, string> = {
   'HTML': 'i-simple-icons-html5',
   'Hugging Face': 'i-simple-icons-huggingface',
   'JavaScript': 'i-simple-icons-javascript',
+  'MongoDB': 'i-simple-icons-mongodb',
+  'Mongoose': 'i-simple-icons-mongoose',
   'MVVM': 'i-tabler-stack-2',
   'Node.js': 'i-simple-icons-nodedotjs',
   'Nuxt': 'i-simple-icons-nuxt',
@@ -21,6 +24,7 @@ const icons: Record<string, string> = {
   'TypeScript': 'i-simple-icons-typescript',
   'Vite': 'i-simple-icons-vite',
   'Vue': 'i-simple-icons-vuedotjs',
+  'Web Components': 'i-simple-icons-webcomponentsdotorg',
   'WebSocket': 'i-tabler-plug-connected',
 }
 
