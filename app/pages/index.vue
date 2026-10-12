@@ -11,6 +11,7 @@ const { data: socials } = await useSocials()
 const { data: projects } = await useProjects()
 const { data: experience } = await useExperience()
 const { data: posts } = await useBlogPosts()
+const { data: publications } = await usePublications()
 const { photos } = await usePhotos()
 
 const cvUrl = computed(() => locale.value === 'en' ? cv.en : cv.tr)
@@ -92,6 +93,17 @@ const others = computed(() => (projects.value ?? []).filter(p => !featured.value
             <ul class="mt-4 flex flex-col gap-4">
               <li v-for="(post, i) in posts.slice(0, 3)" :key="post.path" v-reveal="i">
                 <BlogPostItem :post="post" compact />
+              </li>
+            </ul>
+          </section>
+
+          <USeparator class="my-8" />
+
+          <section v-if="publications?.length" id="yayinlar" class="scroll-mt-20">
+            <SectionHeading :title="$t('nav.publications')" />
+            <ul class="mt-4 flex flex-col gap-5">
+              <li v-for="(publication, i) in publications" :key="publication.id" v-reveal="i">
+                <PublicationItem :publication="publication" />
               </li>
             </ul>
           </section>

@@ -10,6 +10,7 @@
     "experience": "Experience",
     "blog": "Blog",
     "photos": "Photos",
+    "publications": "Publications",
     "menu": "Menu"
   },
   "common": {
@@ -62,6 +63,12 @@
     "description": "Writing by Kübra Çetinkaya on web, mobile and software architecture.",
     "empty": "No posts yet.",
     "notFound": "Post not found"
+  },
+  "publications": {
+    "status": {
+      "accepted": "Publication in progress",
+      "published": "Published"
+    }
   },
   "photos": {
     "title": "Photos",

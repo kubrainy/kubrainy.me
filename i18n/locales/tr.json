@@ -10,6 +10,7 @@
     "experience": "Deneyim",
     "blog": "Blog",
     "photos": "Fotoğraflar",
+    "publications": "Yayınlar",
     "menu": "Menü"
   },
   "common": {
@@ -62,6 +63,12 @@
     "description": "Kübra Çetinkaya'nın web, mobil ve yazılım mimarisi üzerine yazıları.",
     "empty": "Henüz yazı yok.",
     "notFound": "Yazı bulunamadı"
+  },
+  "publications": {
+    "status": {
+      "accepted": "Yayın sürecinde",
+      "published": "Yayımlandı"
+    }
   },
   "photos": {
     "title": "Fotoğraflar",

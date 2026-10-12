@@ -95,6 +95,19 @@ export default defineContentConfig({
         link: z.string().optional(),
       }),
     }),
+    publications: defineCollection({
+      type: 'data',
+      source: 'publications/*.yml',
+      schema: z.object({
+        title: localized,
+        authors: z.array(z.string()),
+        venue: localized,
+        date: z.string(),
+        status: z.enum(['accepted', 'published']),
+        note: localized.optional(),
+        link: z.string().optional(),
+      }),
+    }),
     socials: defineCollection({
       type: 'data',
       source: 'socials/*.yml',

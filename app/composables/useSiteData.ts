@@ -9,6 +9,10 @@ export function useExperience() {
   return useAsyncData('experience', () => queryCollection('experience').all())
 }
 
+export function usePublications() {
+  return useAsyncData('publications', () => queryCollection('publications').order('date', 'DESC').all())
+}
+
 export async function usePhotos() {
   const l = useLocalized()
   const { data } = await useAsyncData('photos', () => queryCollection('photos').all())
