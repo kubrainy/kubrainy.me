@@ -17,6 +17,8 @@ StudyFlow brings these three things together:
 
 All data stays on the device, and the app works without an internet connection.
 
+You can try the web version at [studyflow.kubrainy.me](https://studyflow.kubrainy.me) without installing anything. In the web version, data is stored in the browser.
+
 ## Architecture
 
 I built the app with **MVVM**. Data flows in one direction:

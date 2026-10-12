@@ -3,6 +3,7 @@ featured: true
 platform: mobile
 year: '2026'
 tags: [Flutter, Dart, MVVM, Hive, Dio, fl_chart]
+demo: https://studyflow.kubrainy.me/
 github: https://github.com/kubrainy/StudyFlow
 cover:
   type: phone

@@ -40,9 +40,6 @@ export default defineNuxtConfig({
       projectOgImages,
     },
   },
-  routeRules: {
-    ...Object.fromEntries(projectOgImages.flatMap(slug => [`/projects/${slug}`, `/en/projects/${slug}`]).map(path => [path, { ogImage: false }])),
-  },
   ogImage: {
     enabled: false,
   },

@@ -17,6 +17,8 @@ StudyFlow bu üç şeyi bir araya getiriyor:
 
 Veriler cihazda saklanıyor, uygulama internet olmadan çalışıyor.
 
+Uygulamanın web sürümünü [studyflow.kubrainy.me](https://studyflow.kubrainy.me) adresinde kurulum yapmadan deneyebilirsiniz. Web sürümünde veriler tarayıcıda saklanıyor.
+
 ## Mimari
 
 Uygulamayı **MVVM** ile kurdum. Veri tek yönde akıyor:
